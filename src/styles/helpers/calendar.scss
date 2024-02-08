@@ -1,0 +1,12 @@
+@mixin calendar {
+}
+.MuiDateCalendar-viewTransitionContainer {
+  height: 245px;
+}
+.MuiPickersDay-root.Mui-selected {
+  background: linear-gradient(
+    35deg,
+    rgba(81, 82, 38, 1) 10%,
+    rgb(32, 32, 15) 78%
+  ) !important;
+}

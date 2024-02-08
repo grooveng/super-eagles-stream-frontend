@@ -1,0 +1,38 @@
+@mixin date-picker {
+}
+
+div.MuiPaper-root {
+  background: linear-gradient(45deg, rgb(45, 45, 45) 10%, rgb(10, 10, 10) 90%);
+  width: 100% !important;
+  
+  & button {
+    font-size: 1.5rem;
+    color: var(--light);
+    font-family: var(--font-baguede);
+    @include bp($tablet_max) {
+      font-size: 1.25rem;
+    }
+  }
+  & span {
+    font-size: 1.5rem;
+    color: var(--light);
+    font-family: var(--font-baguede);
+    @include bp($tablet_max) {
+      font-size: 1.25rem;
+    }
+  }
+
+  & div.MuiPickersCalendarHeader-labelContainer {
+    font-size: 1.5rem;
+    color: var(--light);
+    font-family: var(--font-baguede);
+    @include bp($tablet_max) {
+      font-size: 1.25rem;
+    }
+  }
+
+  & button.MuiPickersCalendarHeader-switchViewIcon {
+    font-size: 1.5rem !important;
+  }
+}
+

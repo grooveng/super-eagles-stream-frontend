@@ -1,0 +1,64 @@
+@mixin biggerTitle {
+  font-weight: 400;
+
+  @include bp($tablet_max, min) {
+    font-size: 6rem;
+    letter-spacing: -0.04em;
+  }
+
+  @include bp($tablet_max - 1) {
+    font-size: 3.9rem;
+    letter-spacing: -0.034em;
+  }
+}
+
+@mixin baseTitle {
+  font-weight: 400;
+
+  @include bp($tablet_max, min) {
+    font-size: 5.4rem;
+    letter-spacing: -0.04em;
+  }
+
+  @include bp($tablet_max - 1) {
+    font-size: 3.2rem;
+    letter-spacing: -0.034em;
+  }
+}
+
+@mixin smallTitle {
+  letter-spacing: -0.04em;
+
+  @include bp($tablet_max, min) {
+    font-size: 3.6rem;
+  }
+
+  @include bp($tablet_max - 1) {
+    font-size: 2rem;
+  }
+}
+
+@mixin xsmallTitle {
+  letter-spacing: -0.04em;
+
+  @include bp($tablet_max, min) {
+    font-size: 2.6rem;
+  }
+
+  @include bp($tablet_max - 1) {
+    font-size: 1.95rem;
+  }
+}
+
+@mixin h3 {
+  letter-spacing: -0.04em;
+  line-height: 1.34;
+  font-weight: 400;
+
+  @include bp($tablet_max, min) {
+    font-size: 3.2rem;
+  }
+  @include bp($tablet_max - 1) {
+    font-size: 1.6rem;
+  }
+}

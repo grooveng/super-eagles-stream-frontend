@@ -1,0 +1,71 @@
+@font-face {
+  font-family: "BagueDe";
+  src: url("/fonts/Baguede-Regular.woff2") format("woff2"),
+    url("/fonts/Baguede-Regular.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "BagueDeItalic";
+  src: url("/fonts/Baguede-Italic.woff2") format("woff2"),
+    url("/fonts/Baguede-Italic.woff") format("woff");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "BwModelica";
+  src: url("/fonts/BwModelica-Regular.woff2") format("woff2"),
+    url("/fonts/BwModelica-Regular.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "BwModelica";
+  src: url("/fonts/BwModelica-RegularItalic.woff2") format("woff2"),
+    url("/fonts/BwModelica-RegularItalic.woff") format("woff");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "BwModelicaMedium";
+  src: url("/fonts/BwModelica-Medium.woff2") format("woff2"),
+    url("/fonts/BwModelica-Medium.woff") format("woff");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "BwModelica";
+  src: url("/fonts/BwModelica-MediumItalic.woff2") format("woff2"),
+    url("/fonts/BwModelica-MediumItalic.woff") format("woff");
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "BwModelica";
+  src: url("/fonts/BwModelica-Bold.woff2") format("woff2"),
+    url("/fonts/BwModelica-Bold.woff") format("woff");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "BwModelica";
+  src: url("/fonts/BwModelica-BoldItalic.woff2") format("woff2"),
+    url("/fonts/BwModelica-BoldItalic.woff") format("woff");
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}

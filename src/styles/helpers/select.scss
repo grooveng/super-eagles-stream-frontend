@@ -1,0 +1,530 @@
+@import "./helpers-all.scss";
+
+.select {
+  width: 100%;
+  font-family: var(--font-baguede);
+  color: var(--light);
+  text-align: left;
+
+  &.select--disabled_mod {
+    opacity: 0.6;
+  }
+
+  @include bp($tablet_max, min) {
+    // height: 5rem;
+    font-size: 2rem;
+
+    &.select--md_size {
+      max-width: 28rem;
+    }
+  }
+
+  @include bp($tablet_max - 1) {
+    height: 4.4rem;
+    font-size: 1.5rem;
+  }
+}
+
+.select__in {
+  height: 100%;
+
+  .select__control {
+    min-height: unset;
+    cursor: pointer;
+    transition: box-shadow 0.3s ease 0s;
+  }
+
+  .select__dropdown-indicator {
+    transition: transform 0.3s ease 0s;
+  }
+
+  .select__option {
+    cursor: pointer;
+
+    @include bp($tablet_max, min) {
+      font-size: 1.6rem;
+    }
+
+    @include bp($tablet_max - 1) {
+      font-size: 1.1rem;
+    }
+  }
+
+  // @media (min-width: 1020px) {
+  //   height: 75%;
+  // }
+}
+
+.select__in-fund {
+  height: 90%;
+
+  .select__control {
+    min-height: unset;
+    cursor: pointer;
+    transition: box-shadow 0.3s ease 0s;
+  }
+
+  .select__dropdown-indicator {
+    transition: transform 0.3s ease 0s;
+  }
+
+  .select__option {
+    cursor: pointer;
+
+    @include bp($tablet_max, min) {
+      font-size: 1.6rem;
+    }
+
+    @include bp($tablet_max - 1) {
+      font-size: 1.1rem;
+    }
+  }
+
+  @media (min-width: 1020px) {
+    height: 75%;
+  }
+
+  // @media (min-width: 1500px) {
+  //   height: %;
+  // }
+}
+
+.select__control {
+  height: 100%;
+  padding: 0 1.5rem 0 1.2rem;
+
+  background-clip: padding-box;
+  background-color: transparent;
+  box-shadow: inset 0 0 0 1px var(--light);
+  will-change: box-shadow;
+
+  &.select__control--is-focused {
+    box-shadow: inset 0 0 0 1px #919a57;
+  }
+
+  &.select__control--menu-is-open + .select__menu {
+    animation: fadeIn 0.3s ease-in-out;
+  }
+
+  // @media (min-width: 1020px) {
+  //   height: 89.4%;
+  // }
+}
+
+.select__value-container {
+  margin-right: 4px;
+}
+
+.select__placeholder {
+  opacity: 0.8;
+  letter-spacing: -0.02em;
+  margin: 0;
+}
+
+.select__indicator-separator {
+  display: none;
+}
+
+.select__dropdown-indicator {
+  position: relative;
+
+  background-color: #de703d;
+  color: var(--dark);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+  overflow: hidden;
+  will-change: transform;
+
+  .select__control--menu-is-open & {
+    transform: rotate(-180deg);
+  }
+
+  svg {
+    width: 1.4rem;
+    height: 0.7rem;
+  }
+
+  @include bp($tablet_max, min) {
+    width: 1.6rem;
+    height: 1.6rem;
+  }
+
+  @include bp($tablet_max - 1) {
+    width: 1.4rem;
+    height: 1.4rem;
+  }
+}
+
+.select__value-container {
+  height: 100%;
+}
+
+.select__menu {
+  background: var(--dark);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  border-top: none;
+}
+
+.select__menu-list {
+  .select--low_mod & {
+    max-height: 11rem;
+  }
+}
+
+.select__country-option {
+  display: flex;
+  align-items: center;
+
+  span {
+    margin-top: 2px;
+  }
+}
+
+.select__country-image {
+  position: relative;
+  flex-shrink: 0;
+  border-radius: 50%;
+
+  &:not(:last-child) {
+    @include bp($tablet_max, min) {
+      margin-right: 1.2rem;
+    }
+
+    @include bp($tablet_max - 1) {
+      margin-right: 0.8rem;
+    }
+  }
+
+  @include bp($tablet_max, min) {
+    &:not(.select__menu &) {
+      width: 3rem;
+      height: 3rem;
+    }
+
+    .select__menu & {
+      width: 2.6rem;
+      height: 2.6rem;
+    }
+  }
+
+  @include bp($tablet_max - 1) {
+    &:not(.select__menu &) {
+      width: 1.6rem;
+      height: 1.6rem;
+    }
+
+    .select__menu & {
+      width: 1.4rem;
+      height: 1.4rem;
+    }
+  }
+}
+
+.select__option {
+  transition: background 0.3s ease 0s;
+  background: var(--dark);
+
+  &:hover,
+  &:focus {
+    background: var(--primary-color-2);
+  }
+
+  @include bp($tablet_max, min) {
+    padding: 0.5rem;
+  }
+
+  @include bp($tablet_max - 1) {
+    padding: 0.5rem;
+  }
+}
+
+.select__menu-notice {
+  &.select__menu-notice--no-options {
+    padding: 1.2rem;
+    text-align: left;
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+// ======Fund-wallet======
+.fund {
+  width: 100%;
+  font-family: var(--font-baguede);
+  color: var(--light);
+  text-align: left;
+
+  &.select--disabled_mod {
+    opacity: 0.6;
+  }
+
+  @include bp($tablet_max, min) {
+    height: 5rem;
+    font-size: 2rem;
+
+    &.select--md_size {
+      max-width: 28rem;
+    }
+  }
+
+  @include bp($tablet_max - 1) {
+    height: 4.4rem;
+    font-size: 1.5rem;
+  }
+}
+
+.fund__in {
+  height: 100%;
+
+  .fund-select__control {
+    min-height: unset;
+    cursor: pointer;
+    transition: box-shadow 0.3s ease 0s;
+  }
+
+  .fund__dropdown-indicator {
+    transition: transform 0.3s ease 0s;
+  }
+
+  .fund__option {
+    cursor: pointer;
+
+    @include bp($tablet_max, min) {
+      font-size: 1.6rem;
+    }
+
+    @include bp($tablet_max - 1) {
+      font-size: 1.1rem;
+    }
+  }
+
+  // @media (min-width: 1020px) {
+  //   height: 75%;
+  // }
+}
+
+.fund__in {
+  height: 93%;
+
+  .fund__control {
+    min-height: unset;
+    cursor: pointer;
+    transition: box-shadow 0.3s ease 0s;
+  }
+
+  .fund__dropdown-indicator {
+    transition: transform 0.3s ease 0s;
+  }
+
+  .fund__option {
+    cursor: pointer;
+
+    @include bp($tablet_max, min) {
+      font-size: 1.6rem;
+    }
+
+    @include bp($tablet_max - 1) {
+      font-size: 1.1rem;
+    }
+  }
+
+  @media (min-width: 1020px) {
+    height: 76%;
+  }
+
+  @media (min-width: 1762px) {
+    height: 72%;
+  }
+
+  @media (max-width: 400px) {
+    height: 97%;
+  }
+
+  // @media (min-width: 1500px) {
+  //   height: 99%;
+  // }
+}
+
+.fund__control {
+  height: 75%;
+  padding: 0.4em;
+
+  background-clip: padding-box;
+  background-color: transparent;
+  box-shadow: inset 0 0 0 1px var(--light);
+  will-change: box-shadow;
+
+  &.fund__control--is-focused {
+    box-shadow: inset 0 0 0 1px #919a57;
+  }
+
+  &.fund__control--menu-is-open + .select__menu {
+    animation: fadeIn 0.3s ease-in-out;
+  }
+
+  // @media (min-width: 1020px) {
+  //   height: 89.4%;
+  // }
+}
+
+.fund__value-container {
+  margin-right: 4px;
+}
+
+.fund__placeholder {
+  opacity: 0.8;
+  letter-spacing: -0.02em;
+  margin: 0;
+}
+
+.fund__indicator-separator {
+  display: none;
+}
+
+.fund__dropdown-indicator {
+  position: relative;
+
+  background-color: #de703d;
+  color: var(--dark);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+  overflow: hidden;
+  will-change: transform;
+
+  .fund__control--menu-is-open & {
+    transform: rotate(-180deg);
+  }
+
+  svg {
+    width: 1.4rem;
+    height: 0.7rem;
+  }
+
+  @include bp($tablet_max, min) {
+    width: 1.6rem;
+    height: 1.6rem;
+  }
+
+  @include bp($tablet_max - 1) {
+    width: 1.4rem;
+    height: 1.4rem;
+  }
+}
+
+.fund__value-container {
+  height: 100%;
+}
+
+.fund__menu {
+  background: var(--dark);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  border-top: none;
+}
+
+.fund__menu-list {
+  .select--low_mod & {
+    max-height: 11rem;
+  }
+}
+
+.fund__country-option {
+  display: flex;
+  align-items: center;
+
+  span {
+    margin-top: 2px;
+  }
+}
+
+.fund__country-image {
+  position: relative;
+  flex-shrink: 0;
+  border-radius: 50%;
+
+  &:not(:last-child) {
+    @include bp($tablet_max, min) {
+      margin-right: 1.2rem;
+    }
+
+    @include bp($tablet_max - 1) {
+      margin-right: 0.8rem;
+    }
+  }
+
+  @include bp($tablet_max, min) {
+    &:not(.fund__menu &) {
+      width: 3rem;
+      height: 3rem;
+    }
+
+    .fund__menu & {
+      width: 2.6rem;
+      height: 2.6rem;
+    }
+  }
+
+  @include bp($tablet_max - 1) {
+    &:not(.fund__menu &) {
+      width: 1.6rem;
+      height: 1.6rem;
+    }
+
+    .fund__menu & {
+      width: 1.4rem;
+      height: 1.4rem;
+    }
+  }
+}
+
+.fund__option {
+  transition: background 0.3s ease 0s;
+  background: var(--dark);
+
+  &:hover,
+  &:focus {
+    background: var(--primary-color-2);
+  }
+
+  @include bp($tablet_max, min) {
+    padding: 0.5rem;
+  }
+
+  @include bp($tablet_max - 1) {
+    padding: 0.5rem;
+  }
+}
+
+.fund-select__menu-notice {
+  &.fund-select__menu-notice--no-options {
+    padding: 1.2rem;
+    text-align: left;
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+//=========================
