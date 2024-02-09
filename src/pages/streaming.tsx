@@ -24,10 +24,3 @@ export default function StreamingPage({ query }: QueryProps) {
   );
 }
 
-export const getServerSideProps: GetServerSideProps = async ({ query }) => {
-  return {
-    props: {
-      query,
-    },
-  };
-};
