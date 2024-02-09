@@ -34,6 +34,7 @@ import { format } from "date-fns";
 import { Button } from "@/components/ui/button";
 import { Events } from "@/types/events";
 import { ResponseWithEvent } from "@/types/network-response";
+import { MtnLogo } from "@/components/ui/mtn-logo";
 
 export type StreamingSectionProps = {
   eid: string;
@@ -71,7 +72,7 @@ export function StreamingSection({ eid }: StreamingSectionProps) {
     }
   );
 
-  const isFetching = isEventLoading;
+  const isFetching = false;
 
   // const getStreamUrlFromPass = useCallback(() => {
   //   const passes = event?.passes?.filter((p) => p.isEnabled);
@@ -131,17 +132,30 @@ export function StreamingSection({ eid }: StreamingSectionProps) {
   ) : (
     <div className={styles["page-wrapper"]}>
       <section className={styles["streaming"]}>
-        <div className={styles["bg"]}>
+        {/* <div className={styles["bg"]}>
           <Picture img="images/streaming/bg.png" />
+        </div> */}
+
+        <div className={styles["account__description-wrap"]}>
+          <div className={styles["account__description"]}>
+            <div className={styles["account__description-top"]}>
+              <p>Together, we rise</p>
+              <p>unite for Victory, Nigeria</p>
+            </div>
+
+            <div className={styles["account__description-bottom"]}>
+              <p>Brought to you by </p>
+              <MtnLogo />
+            </div>
+          </div>
         </div>
 
         <div className={styles["cols"]}>
-          <div className={styles["col"]}></div>
           <div className={styles["col"]}>
             <div className={styles["video_block"]}>
               <div style={{ padding: "56.25% 0 0 0", position: "relative" }}>
                 <iframe
-                  src={streamUrl}
+                  src={"https://www.youtube.com/watch?v=ETUdvy_8zfU"}
                   frameBorder="0"
                   allow="autoplay; fullscreen; picture-in-picture"
                   allowFullScreen
