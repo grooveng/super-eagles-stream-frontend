@@ -1,25 +1,26 @@
-import { useEffect, useState } from "react";
-import SwiperCore, { EffectFade } from "swiper";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Picture, PictureProps } from "@/components/ui/picture/picture";
-import styles from "./account-slider.module.scss";
-import "swiper/css";
-import "swiper/css/effect-fade";
+import { useEffect, useState } from "react"
+import SwiperCore from "swiper"
+import { EffectFade } from "swiper/modules"
+import { Swiper, SwiperSlide } from "swiper/react"
+import { Picture, PictureProps } from "@/components/ui/picture/picture"
+import styles from "./account-slider.module.scss"
+import "swiper/css"
+import "swiper/css/effect-fade"
 
 type AccountSliderProps = {
-  pictures: PictureProps[];
-  activeSlide: number;
-};
+  pictures: PictureProps[]
+  activeSlide: number
+}
 
 export function AccountSlider({ pictures, activeSlide }: AccountSliderProps) {
-  const [swiper, setSwiper] = useState<SwiperCore | null>(null);
-  SwiperCore.use([EffectFade]);
+  const [swiper, setSwiper] = useState<SwiperCore | null>(null)
+  SwiperCore.use([EffectFade])
 
   useEffect(() => {
     if (swiper) {
-      swiper.slideTo(activeSlide, 500);
+      swiper.slideTo(activeSlide, 500)
     }
-  }, [swiper, activeSlide]);
+  }, [swiper, activeSlide])
 
   return (
     <Swiper
@@ -35,8 +36,8 @@ export function AccountSlider({ pictures, activeSlide }: AccountSliderProps) {
           <SwiperSlide className={styles["account_slider__slide"]} key={index}>
             <Picture noSource {...picture} />
           </SwiperSlide>
-        );
+        )
       })}
     </Swiper>
-  );
+  )
 }
