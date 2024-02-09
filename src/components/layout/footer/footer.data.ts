@@ -1,19 +1,19 @@
 export const footerLinks = [
   {
     text: "Privacy Policy",
-    href: "/privacy-policy",
+    href: "https://stream.udux.com/privacy-policy",
   },
   {
     text: "T&C's",
-    href: "/terms-and-conditions/",
+    href: "https://stream.udux.com/terms-and-conditions",
   },
   {
     text: "Purchase Terms",
-    href: "/purchase-terms",
+    href: "https://stream.udux.com/purchase-terms",
   },
   {
     text: "Cookie Policy",
-    href: "/cookie-policy",
+    href: "https://stream.udux.com/cookie-policy",
   },
 ];
 

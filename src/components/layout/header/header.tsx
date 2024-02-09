@@ -62,12 +62,18 @@ export function Header({ hasMobileCta = false }: HeaderProps) {
 
   return (
     <Fragment>
-      <header className={styles["header"]}>
+      <header
+        className={
+          !scrolling
+            ? `${styles["header"]}`
+            : `${styles["header"]} ${styles["scrolled"]}`
+        }
+      >
         <div className={styles["header__row"]}>
           <Column>
-            <Link  href="#" className={styles["header__logo"]}>
+            <div className={styles["header__logo"]}>
               <Logo />
-            </Link>
+            </div>
           </Column>
         </div>
       </header>
