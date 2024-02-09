@@ -36,7 +36,6 @@ import { ResponseWithEvent } from "@/types/network-response";
 import { MtnLogo } from "@/components/ui/mtn-logo";
 import { UduxIcon } from "@/components/ui/logo";
 
-
 export function StreamingSection() {
   const [event, setEvent] = useState<Events>();
 
@@ -130,7 +129,7 @@ export function StreamingSection() {
     <div className={styles["page-wrapper"]}>
       <section className={styles["streaming"]}>
         <div className={styles["bg"]}>
-          <Picture img="images/super-eagles.png" noSource/>
+          <Picture img="images/super-eagles.png" noSource />
         </div>
 
         <div className={styles["account__description-wrap"]}>
@@ -152,10 +151,9 @@ export function StreamingSection() {
             <div className={styles["video_block"]}>
               <div style={{ padding: "56.25% 0 0 0", position: "relative" }}>
                 <iframe
-                  src={"https://www.youtube.com/watch?v=ETUdvy_8zfU"}
+                  src="https://player.vimeo.com/video/885224483?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
                   frameBorder="0"
                   allow="autoplay; fullscreen; picture-in-picture"
-                  allowFullScreen
                   style={{
                     position: "absolute",
                     top: "0",
@@ -163,6 +161,7 @@ export function StreamingSection() {
                     width: "100%",
                     height: "100%",
                   }}
+                  title="Manuel Udux test 2"
                 ></iframe>
               </div>
             </div>
