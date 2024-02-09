@@ -8,7 +8,7 @@ import { TechIssuesIcon } from "@/components/ui/icons/tech-issues";
 import { TierIcon } from "@/components/ui/icons/tier";
 import { UserIcon } from "@/components/ui/icons/user";
 import { WatchIcon } from "@/components/ui/icons/watch";
-import { TicketIcon } from "@/components/ui/ticket-icon";
+
 
 export const getComponentIcon = (categorySlug: string) => {
   switch (categorySlug) {

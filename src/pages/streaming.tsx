@@ -18,16 +18,8 @@ export default function StreamingPage({ query }: QueryProps) {
   return (
     // query?.eid ? (
     <BaseLayout variant="baseOtherPages">
-      <StreamingSection eid={query?.eid as string} />
+      <StreamingSection />
     </BaseLayout>
     // ) : null
   );
 }
-
-export const getServerSideProps: GetServerSideProps = async ({ query }) => {
-  return {
-    props: {
-      query,
-    },
-  };
-};

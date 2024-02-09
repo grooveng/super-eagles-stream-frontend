@@ -7,7 +7,6 @@ import styles from "./header.module.scss";
 import { Column, Navigation } from "./ui";
 import { useRouter } from "next/router";
 import { useMediaQuery } from "usehooks-ts";
-import { ProfileDropdown } from "@/components/ui/profile-dropdown/profile-dropdown";
 import _ from "lodash";
 
 type HeaderProps = {

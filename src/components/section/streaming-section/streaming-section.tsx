@@ -1,6 +1,5 @@
 import { Loader } from "@/components/ui/loaders";
-import { NoAccessToStream } from "@/components/ui/no-access-to-stream/no-access-to-stream";
-import { StreamingChat } from "@/components/ui/streaming-chat";
+
 import {
   ToastContainerWrapper,
   useToast,
@@ -31,18 +30,12 @@ import { format } from "date-fns";
 // import { useSocket } from "@/context/socket";
 
 import { Button } from "@/components/ui/button";
-import { Events } from "@/types/events";
-import { ResponseWithEvent } from "@/types/network-response";
+
+// import { ResponseWithEvent } from "@/types/network-response";
 import { MtnLogo } from "@/components/ui/mtn-logo";
 import { UduxIcon } from "@/components/ui/logo";
 
-export type StreamingSectionProps = {
-  eid: string;
-};
-
-export function StreamingSection({ eid }: StreamingSectionProps) {
-  const [event, setEvent] = useState<Events>();
-
+export function StreamingSection() {
   const { showToast } = useToast();
 
   const { push } = useRouter();
@@ -60,17 +53,17 @@ export function StreamingSection({ eid }: StreamingSectionProps) {
   const passId = query.pass as string;
   const eventUrlId = query.eid as string;
 
-  const { isLoading: isEventLoading } = useQuery(
-    ["get-single-event"],
-    async (): Promise<Events> => {
-      const { data } = await instance.get<ResponseWithEvent>(`/events/${eid}`);
-      setEvent(data.data);
-      return data.data;
-    },
-    {
-      enabled: !!eid,
-    }
-  );
+  // const { isLoading: isEventLoading } = useQuery(
+  //   ["get-single-event"],
+  //   async (): Promise<Events> => {
+  //     const { data } = await instance.get<ResponseWithEvent>(`/events/${eid}`);
+  //     setEvent(data.data);
+  //     return data.data;
+  //   },
+  //   {
+  //     enabled: !!eid,
+  //   }
+  // );
 
   const isFetching = false;
 
@@ -132,9 +125,9 @@ export function StreamingSection({ eid }: StreamingSectionProps) {
   ) : (
     <div className={styles["page-wrapper"]}>
       <section className={styles["streaming"]}>
-        {/* <div className={styles["bg"]}>
-          <Picture img="images/streaming/bg.png" />
-        </div> */}
+        <div className={styles["bg"]}>
+          <Picture img="images/super-eagles.png" noSource />
+        </div>
 
         <div className={styles["account__description-wrap"]}>
           <div className={styles["account__description"]}>
@@ -155,10 +148,9 @@ export function StreamingSection({ eid }: StreamingSectionProps) {
             <div className={styles["video_block"]}>
               <div style={{ padding: "56.25% 0 0 0", position: "relative" }}>
                 <iframe
-                  src={"https://www.youtube.com/watch?v=ETUdvy_8zfU"}
+                  src="https://player.vimeo.com/video/885224483?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
                   frameBorder="0"
                   allow="autoplay; fullscreen; picture-in-picture"
-                  allowFullScreen
                   style={{
                     position: "absolute",
                     top: "0",
@@ -166,6 +158,7 @@ export function StreamingSection({ eid }: StreamingSectionProps) {
                     width: "100%",
                     height: "100%",
                   }}
+                  title="Manuel Udux test 2"
                 ></iframe>
               </div>
             </div>
@@ -178,14 +171,19 @@ export function StreamingSection({ eid }: StreamingSectionProps) {
             <div className={styles["posters"]}>
               <div className={styles["first-ad"]}>
                 <Picture
-                  img={event?.bannerUrl || "images/streaming/bg.png"}
+                    img={
+                      // event?.bannerUrl ||
+                      "images/streaming/bg.png"}
                   noSource
                 />
               </div>
 
               <div className={styles["second-ad"]}>
                 <Picture
-                  img={event?.bannerUrl || "images/streaming/bg.png"}
+                    img={
+                      // event?.bannerUrl ||
+                      "images/streaming/bg.png"
+                    }
                   noSource
                 />
               </div>
