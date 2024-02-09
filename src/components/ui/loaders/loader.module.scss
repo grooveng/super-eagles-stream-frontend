@@ -1,0 +1,48 @@
+@import "@/styles/helpers/helpers-all.scss";
+
+.container {
+  max-height: 80dvh;
+
+  @include bp($tablet_max, min) {
+  }
+
+  @include bp($tablet_max - 1) {
+  }
+}
+
+.lottie {
+  height: 50dvh;
+}
+
+.loader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+.xl {
+  height: 60svh;
+  width: 50%;
+}
+
+.lg {
+  height: 50svh;
+  width: 50%;
+}
+
+.md {
+  height: 40svh;
+  width: 50%;
+}
+
+.sm {
+  height: 30svh;
+  width: 50%;
+}
+
+.xs {
+  height: 10svh;
+  width: auto;
+}

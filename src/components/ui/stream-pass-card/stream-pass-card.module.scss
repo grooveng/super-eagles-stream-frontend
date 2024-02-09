@@ -1,0 +1,533 @@
+@import "@/styles/helpers/helpers-all.scss";
+
+.card {
+  position: relative;
+  cursor: pointer;
+  width: 430px;
+  min-width: 400px;
+  height: 500px;
+  z-index: 1;
+
+  @include bg_img();
+
+  @include bp($desktop_xl, min) {
+    width: 580px;
+    min-width: 480px;
+    min-height: 580px;
+    max-height: 680px;
+  }
+
+  @include bp($tablet_max, min) {
+    width: 420px;
+    min-width: 400px;
+    max-width: 450px;
+    height: 490px;
+  }
+
+  @include bp($tablet_max - 1) {
+    width: 360px;
+    min-width: 360px;
+    max-width: 400px;
+    height: 410px;
+  }
+
+  @include bp($tablet_min) {
+    width: 340px;
+    min-width: 340px;
+    max-width: 350px;
+    height: 430px;
+    min-height: 400px;
+  }
+
+  @include bp($mobile_lg) {
+    width: 100%;
+    min-width: 320px;
+    max-width: 360px;
+    height: 410px;
+    min-height: 390px;
+  }
+
+  .img__main_in {
+    width: 100%;
+    height: 100%;
+
+    @include responsive_img();
+  }
+
+  .event_mode {
+    position: absolute;
+    top: 2%;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 0.5rem 1rem;
+
+    p {
+      font-family: var(--font-baguede);
+    }
+
+    @include bp($desktop_xl, min) {
+      p {
+        font-size: 2rem !important;
+      }
+    }
+
+    @include bp($tablet_max, min) {
+      p {
+        font-size: 2.5rem;
+      }
+    }
+
+    @include bp($tablet_max - 1) {
+      p {
+        font-size: 1.55rem;
+      }
+    }
+
+    @include bp($mobile_lg) {
+      p {
+        font-size: 1.3rem;
+      }
+    }
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0) 0%,
+      rgba(0, 0, 0, 0.9) 100%
+    );
+    opacity: 1;
+    z-index: 2;
+  }
+
+  .fixedLine {
+    position: absolute;
+    content: "";
+    z-index: 99999;
+    bottom: 0;
+    right: -2px;
+    width: 6px;
+    height: 75%;
+    transition: height 0.25s ease-in-out;
+  }
+
+  &:hover .fixedLine {
+    height: 100%;
+  }
+
+  .card_footer {
+    width: 90%;
+    display: flex;
+    align-items: center;
+    position: absolute;
+    bottom: 0px;
+    left: 50%;
+    z-index: 10;
+    transform: translateX(-50%) translateY(-50%);
+    justify-content: space-between;
+
+    .footer_text {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+
+      @include bp($desktop_xl, min) {
+        .artist_name {
+          font-size: 2.35rem !important;
+          font-weight: 600;
+        }
+
+        .event_name {
+          font-size: 1.15rem !important;
+          font-weight: 200;
+        }
+
+        .event_date {
+          font-size: 1rem !important;
+          font-weight: 200;
+        }
+
+        .event_duration {
+          font-size: 0.85rem !important;
+        }
+      }
+
+      @include bp($tablet_max, min) {
+        .artist_name {
+          font-size: 2.8rem;
+          font-weight: 600;
+        }
+
+        .event_name,
+        .event_date {
+          font-size: 2rem;
+          font-weight: 200;
+        }
+
+        .event_duration {
+          font-size: 1.65rem;
+        }
+      }
+
+      @include bp($tablet_max - 1) {
+        .artist_name {
+          font-size: 2.23rem;
+        }
+
+        .event_name {
+          font-size: 1.25rem;
+        }
+
+        .event_date {
+          font-size: 1.25rem;
+        }
+
+        .event_duration {
+          font-size: 1rem;
+        }
+      }
+
+      @include bp($mobile_lg) {
+        .artist_name {
+          font-size: 2rem;
+        }
+
+        .event_name {
+          font-size: 1.2rem;
+        }
+
+        .event_date {
+          font-size: 1.2rem;
+        }
+
+        .event_duration {
+          font-size: 0.95rem;
+        }
+      }
+      .artist_name {
+        text-transform: capitalize;
+      }
+
+      .event_name,
+      .event_date {
+        color: #ffffff;
+      }
+    }
+
+    .footer_icon {
+      z-index: 10;
+
+      @include bp($desktop_xl, min) {
+        height: 50px;
+        width: 50px;
+      }
+
+      @include bp($tablet_max, min) {
+        height: 30px;
+        width: 30px;
+      }
+
+      @include bp($tablet_max - 1) {
+        height: 20px;
+        width: 20px;
+      }
+
+      @include responsive_img(contain);
+    }
+  }
+}
+
+.disabled-card {
+  position: relative;
+  cursor: pointer;
+  width: 430px;
+  min-width: 400px;
+  height: 500px;
+  z-index: 1;
+
+  transition: all 3ms ease-in;
+
+  @include bg_img();
+
+  @include bp($desktop_xl, min) {
+    width: 580px;
+    min-width: 480px;
+    min-height: 580px;
+    max-height: 680px;
+  }
+
+  @include bp($tablet_max, min) {
+    width: 420px;
+    min-width: 400px;
+    max-width: 450px;
+    height: 490px;
+  }
+
+  @include bp($tablet_max - 1) {
+    width: 360px;
+    min-width: 360px;
+    max-width: 400px;
+    height: 410px;
+  }
+
+  @include bp($tablet_min) {
+    width: 340px;
+    min-width: 340px;
+    max-width: 350px;
+    height: 430px;
+    min-height: 400px;
+  }
+
+  @include bp($mobile_lg) {
+    width: 100%;
+    min-width: 320px;
+    max-width: 360px;
+    height: 410px;
+    min-height: 390px;
+  }
+
+  .disabled-img__main_in {
+    width: 100%;
+    height: 100%;
+
+    @include responsive_img();
+  }
+
+  .disabled-unavailable {
+    display: none;
+  }
+
+  &:hover {
+    .disabled-unavailable {
+      background-color: black;
+      opacity: 0.9;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      // display: none;
+
+      z-index: 12;
+
+      @include bp($desktop_xl, min) {
+        p {
+          font-size: 2rem !important;
+        }
+      }
+
+      @include bp($tablet_max, min) {
+        p {
+          font-size: 2.5rem;
+        }
+      }
+
+      @include bp($tablet_max - 1) {
+        p {
+          font-size: 1.55rem;
+        }
+      }
+
+      @include bp($mobile_lg) {
+        p {
+          font-size: 1.3rem;
+        }
+      }
+    }
+  }
+
+  .disabled-event_mode {
+    position: absolute;
+    top: 2%;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 0.5rem 1rem;
+
+    p {
+      font-family: var(--font-baguede);
+    }
+
+    @include bp($desktop_xl, min) {
+      p {
+        font-size: 2rem !important;
+      }
+    }
+
+    @include bp($tablet_max, min) {
+      p {
+        font-size: 2.5rem;
+      }
+    }
+
+    @include bp($tablet_max - 1) {
+      p {
+        font-size: 1.55rem;
+      }
+    }
+
+    @include bp($mobile_lg) {
+      p {
+        font-size: 1.3rem;
+      }
+    }
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #000000;
+    opacity: 0.85;
+    z-index: 2;
+  } 
+
+  .disabled-fixedLine {
+    position: absolute;
+    content: "";
+    z-index: 99999;
+    bottom: 0;
+    right: -2px;
+    width: 6px;
+    height: 75%;
+    background: #f1f1f1;
+    transition: height 0.25s ease-in-out;
+  }
+
+  // &:hover {
+  //   height: 100%;
+  // }
+
+  .disabled_card_footer {
+    width: 90%;
+    display: flex;
+    align-items: center;
+    position: absolute;
+    bottom: 0px;
+    left: 50%;
+    z-index: 10;
+    transform: translateX(-50%) translateY(-50%);
+    justify-content: space-between;
+
+    .disabled_footer_text {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+
+      @include bp($desktop_xl, min) {
+        .disabled_artist_name {
+          font-size: 2.35rem !important;
+          font-weight: 600;
+        }
+
+        .disabled_event_name {
+          font-size: 1.15rem !important;
+          font-weight: 200;
+        }
+
+        .disabled_event_date {
+          font-size: 1rem !important;
+          font-weight: 200;
+        }
+
+        .disabled_event_duration {
+          font-size: 0.85rem !important;
+        }
+      }
+
+      @include bp($tablet_max, min) {
+        .disabled_artist_name {
+          font-size: 2.8rem;
+          font-weight: 600;
+        }
+
+        .disabled_event_name,
+        .disabled_event_date {
+          font-size: 2rem;
+          font-weight: 200;
+        }
+
+        .disabled_event_duration {
+          font-size: 1.65rem;
+        }
+      }
+
+      @include bp($tablet_max - 1) {
+        .disabled_artist_name {
+          font-size: 2.23rem;
+        }
+
+        .disabled_event_name {
+          font-size: 1.25rem;
+        }
+
+        .disabled_event_date {
+          font-size: 1.25rem;
+        }
+
+        .disabled_event_duration {
+          font-size: 1rem;
+        }
+      }
+
+      @include bp($mobile_lg) {
+        .disabled_artist_name {
+          font-size: 2rem;
+        }
+
+        .disabled_event_name {
+          font-size: 1.2rem;
+        }
+
+        .disabled_event_date {
+          font-size: 1.2rem;
+        }
+
+        .disabled_event_duration {
+          font-size: 0.95rem;
+        }
+      }
+      .disabled_artist_name {
+        text-transform: capitalize;
+      }
+
+      .disabled_event_name,
+      .disabled_event_date {
+        color: #ffffff;
+      }
+    }
+
+    .disabled_footer_icon {
+      z-index: 10;
+
+      @include bp($desktop_xl, min) {
+        height: 50px;
+        width: 50px;
+      }
+
+      @include bp($tablet_max, min) {
+        height: 30px;
+        width: 30px;
+      }
+
+      @include bp($tablet_max - 1) {
+        height: 20px;
+        width: 20px;
+      }
+
+      @include responsive_img(contain);
+    }
+  }
+}

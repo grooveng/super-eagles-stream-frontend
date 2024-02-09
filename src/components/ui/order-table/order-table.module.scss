@@ -1,0 +1,111 @@
+.orderTable__wrapper {
+  position: relative;
+  max-height: 125px !important;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  margin: 20px 0;
+  font-size: 9px;
+  text-align: center;
+  pointer-events: auto !important;
+
+  &::-webkit-scrollbar {
+    width: 2px;
+    border: 2px solid red;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: #ffffff;
+    border-radius: 2px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: #707070;
+  }
+
+  .orderTable__container {
+    max-width: 290px;
+    width: 100%;
+    margin: 0 auto;
+    border-collapse: collapse;
+
+    section:first-of-type {
+      position: sticky;
+      top: 0;
+      margin-bottom: .6rem;
+    }
+
+    .orderTable__columns {
+      display: grid;
+      grid-template-columns: 1fr 2fr 2fr 2fr;
+      gap: 4px;
+      background: #090909;
+      list-style-type: none;
+
+      li {
+        font-size: 1.3rem;
+        color: #e0dbdb;
+        //  border: 2px solid red;
+      }
+
+      li {
+        text-align: center;
+        width: fit-content;
+        min-width: 62px;
+        // border: 2px solid red;
+        // padding: 1.5rem 1.55rem;
+      }
+
+      // th {
+      //     flex-basis: 90%;
+      //     border: 2px solid red;
+      // }
+    }
+
+    @media (min-width: 1000px) {
+      max-width: 280px;
+    }
+
+    @media (min-width: 2000px) {
+      max-width: 350px;
+    }
+  }
+}
+
+.orderTable__row {
+  border: 1px solid #5350504d;
+  list-style-type: none;
+  display: grid;
+  grid-template-columns: 1fr 2fr 2fr 2fr;
+  margin-bottom: 0.3rem;
+
+  .orderTable__success {
+    color: #919a57;
+  }
+
+  li:first-of-type {
+    display: flex;
+    margin-left: 1.3px;
+    color: rgb(108, 228, 108);
+  }
+
+  li {
+    text-align: center;
+    width: fit-content;
+    min-width: 60px;
+    // border: 2px solid red;
+    padding: 1.3rem;
+  }
+
+ @media (max-width: 400px) {
+  li {
+    text-align: center;
+    // width: 120px;
+    // border: 2px solid red;
+    padding: 7px;
+  }
+ } 
+}
+
+.orderTable__scrollAtBottom {
+  transition: background-color 0.3s ease;
+}

@@ -1,0 +1,52 @@
+@import "@/styles/helpers/helpers-all.scss";
+
+.header__list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+
+  @include bp($desktop, min) {
+    margin: 0 -9rem -2rem 0;
+  }
+
+  @include bp($desktop - 1) {
+    margin: 0 -4rem -2rem 0;
+  }
+}
+
+.header__item {
+  @include bp($desktop, min) {
+    padding: 0 9rem 2rem 0;
+  }
+
+  @include bp($desktop - 1) {
+    padding: 0 4rem 2rem 0;
+  }
+}
+
+.header__link {
+  font-family: var(--font-baguede);
+  color: var(--light-2);
+  letter-spacing: -0.056em;
+  text-decoration: none;
+
+  transition: color 0.3s ease, opacity 0.3s ease;
+
+  &.header__link--active_state {
+    color: var(--button-color-1);
+  }
+
+  &:hover,
+  &:focus {
+    opacity: 0.9;
+    color: var(--button-color-1);
+  }
+
+  @include bp($desktop, min) {
+    font-size: 2.8rem;
+  }
+
+  @include bp($desktop - 1) {
+    font-size: 2.2rem;
+  }
+}

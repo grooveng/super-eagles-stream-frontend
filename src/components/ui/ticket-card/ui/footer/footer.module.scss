@@ -1,0 +1,113 @@
+@import "@/styles/helpers/helpers-all.scss";
+
+.footer {
+  padding: 2rem 0.8rem 4rem;
+}
+
+.footer__row {
+  display: flex;
+  align-items: stretch;
+  margin: 0 -1.4rem -1.4rem 0;
+}
+
+.footer__column {
+  display: flex;
+  padding: 0 1.4rem 1.4rem 0;
+
+  &:nth-child(1) {
+    align-items: center;
+
+    @include bp($mobile_sm - 1) {
+      width: 55%;
+    }
+  }
+
+  &:nth-child(2) {
+    margin-top: auto;
+
+    justify-content: flex-end;
+
+    @include bp($mobile_sm, min) {
+      flex: 1 1 auto;
+      margin-right: 2rem;
+
+      a,
+      button {
+        min-width: 12.6rem;
+      }
+    }
+
+    @include bp($mobile_sm - 1) {
+      width: 45%;
+    }
+  }
+}
+
+.footer__icon {
+  position: relative;
+  flex-shrink: 0;
+
+  &:not(:last-child) {
+    margin-right: 1.5rem;
+  }
+
+  @include bp($mobile_sm, min) {
+    width: 1.8rem;
+    height: 1.6rem;
+  }
+
+  @include bp($mobile_sm - 1) {
+    width: 1.4rem;
+    height: 1.2rem;
+  }
+}
+
+.footer__title--MTN {
+  color: #fbb814 !important;
+
+  letter-spacing: -0.04em;
+
+  &:not(:last-child) {
+    margin-bottom: 0.6rem;
+  }
+
+  @include bp($mobile_sm, min) {
+    font-size: 1.8rem;
+  }
+
+  @include bp($mobile_sm - 1) {
+    font-size: 1.4rem;
+  }
+}
+
+.footer__title {
+  color: inherit;
+
+  letter-spacing: -0.04em;
+
+  &:not(:last-child) {
+    margin-bottom: 0.6rem;
+  }
+
+  @include bp($mobile_sm, min) {
+    font-size: 1.8rem;
+  }
+
+  @include bp($mobile_sm - 1) {
+    font-size: 1.4rem;
+  }
+}
+
+.footer__category {
+  color: var(--light);
+  font-family: var(--font-bw-modelica);
+  letter-spacing: -0.04em;
+
+  @include bp($mobile_sm, min) {
+    font-size: 1.1rem;
+  }
+
+  @include bp($mobile_sm - 1) {
+    font-size: 1rem;
+  }
+}

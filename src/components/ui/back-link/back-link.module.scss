@@ -1,0 +1,65 @@
+@import "@/styles/helpers/helpers-all.scss";
+
+//---------------------------------------------BackLink
+.component {
+  display: inline-flex;
+  align-items: center;
+
+  color: var(--light);
+  font-size: max(1.2rem, 10px);
+  font-weight: 700;
+  font-family: var(--font-bw-modelica);
+
+  text-decoration: none;
+
+  transition: color 0.3s ease;
+
+  &.component--account_mod {
+    position: absolute;
+    z-index: 2;
+
+    @include bp($tablet_max, min) {
+      top: -5rem;
+      // right: -8.8rem;
+      right: -6.8rem;
+      transform: translateX(100%);
+    }
+
+    @include bp($tablet_max - 1) {
+      // top: -3.6rem;
+      // left: 0;
+      display: none;
+    }
+  }
+
+  &:hover,
+  &:focus {
+    text-decoration: none;
+    color: #ff9e00;
+  }
+}
+
+.icon {
+  width: 2.2rem;
+  height: 1.2rem;
+  margin-right: 1.2rem;
+  color: var(--light);
+
+  // color: #eaeaea;
+  transition: color 0.3s ease;
+
+  .component:hover &,
+  .component:focus & {
+    color: #ff9e00;
+  }
+
+  svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+  }
+}
+
+//---------------------------------------------BackLink###

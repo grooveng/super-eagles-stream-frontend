@@ -1,0 +1,104 @@
+@import "@/styles/helpers/helpers-all.scss";
+
+.quantity {
+  @include flex_block(row, wrap, flex-start, center, center);
+}
+
+.quantity__decrease,
+.quantity__increase {
+  position: relative;
+  flex-shrink: 0;
+
+  cursor: pointer;
+
+  @include bp($tablet_max, min) {
+    width: 4rem;
+    height: 4rem;
+    margin: 0 -1rem;
+  }
+  @include bp($tablet_max - 1) {
+    width: 2rem;
+    height: 2rem;
+    margin: -0.5rem;
+  }
+
+  &::after,
+  &::before {
+    position: absolute;
+    top: 50%;
+
+    @include bp($tablet_max, min) {
+      width: 2rem;
+      left: 1rem;
+      margin-top: -1px;
+      height: 2px;
+    }
+
+    @include bp($tablet_max - 1) {
+      width: 1rem;
+      margin-top: -0.5px;
+      left: 0.5rem;
+      height: 1px;
+    }
+  }
+
+  &::after {
+    transform-origin: center;
+    transform: rotateZ(90deg);
+  }
+
+  transition: opacity 0.2s ease-in-out;
+
+  @include bp($tablet_max, min) {
+    &:hover {
+      opacity: 0.67;
+      text-decoration: none;
+    }
+  }
+}
+
+.quantity__decrease {
+  &::before {
+    background-color: var(--secondary-color-2);
+    content: "";
+  }
+}
+
+.quantity__increase {
+  color: inherit;
+  &::after,
+  &::before {
+    color: inherit;
+    background-color: currentColor;
+    content: "";
+  }
+}
+
+.quantity__value {
+  text-align: center;
+  color: currentColor;
+
+  @include bp($tablet_max, min) {
+    // padding-top: 0.25em;
+    margin: 0 1.2rem;
+    min-width: 5rem;
+    font-size: 3.8rem;
+  }
+  @include bp($tablet_max - 1) {
+    padding-top: 0.3em;
+    margin: 0 0.4rem;
+    min-width: 2rem;
+    font-size: 1.5rem;
+  }
+}
+
+.quantity__hidden_input {
+  position: absolute;
+  height: 0;
+  visibility: hidden;
+}
+
+.disable__inc {
+  cursor: not-allowed;
+  color: var(--secondary-color-2);
+}

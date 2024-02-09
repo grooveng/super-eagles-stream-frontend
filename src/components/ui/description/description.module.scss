@@ -1,0 +1,95 @@
+@import "@/styles/helpers/helpers-all.scss";
+
+.description {
+  font-weight: 500;
+  font-family: var(--font-bw-modelica);
+  width: 100%;
+
+  &.description--color_base_mod {
+    color: #fdfeff;
+  }
+
+  &.description--color_1_mod {
+    color: var(--light-2);
+  }
+
+  &.description--color_danger_mod {
+    color: red;
+  }
+
+  &.description--text_center_mod {
+    text-align: center;
+    width: 80%;
+    color: #FFFFFF;
+    letter-spacing: -0.96px;
+    @media screen and (max-width: 919px){
+      width: 95%;
+    }
+  }
+
+  &.description--xs_mod {
+    letter-spacing: -0.04em;
+
+    @include bp($tablet_max, min) {
+      font-size: 2rem;
+      line-height: 1.6;
+    }
+  }
+
+  &.description--base_mod {
+    @include bp($tablet_max, min) {
+      font-size: 2.2rem;
+      line-height: 1.45;
+      letter-spacing: -0.042em;
+
+      p:not(:last-child) {
+        margin-bottom: 3.2rem;
+      }
+    }
+
+    @include bp($tablet_max - 1) {
+      letter-spacing: -0.048em;
+    }
+  }
+
+  &.description--lg_mod {
+    @include bp($tablet_max, min) {
+      font-size: 2.4rem;
+      line-height: 1.4;
+      letter-spacing: -0.04em;
+
+      p:not(:last-child) {
+        margin-bottom: 3.5rem;
+      }
+    }
+
+    @include bp($tablet_max - 1) {
+      letter-spacing: -0.036em;
+    }
+
+  }
+
+  &.description--lg_mobile_mod {
+    @include bp($tablet_max) {
+      font-size: 1.8rem;
+    }
+  }
+
+  &.description--style_1_mod {
+    @include bp($tablet_max) {
+      font-weight: 700;
+      font-family: var(--font-baguede);
+      letter-spacing: -0.04em;
+      line-height: 1.45;
+    }
+  }
+
+  @include bp($tablet_max - 1) {
+    font-size: 1.4rem;
+    line-height: 1.57;
+
+    p:not(:last-child) {
+      margin-bottom: 2.2rem;
+    }
+  }
+}

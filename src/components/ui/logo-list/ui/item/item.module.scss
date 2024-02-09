@@ -1,0 +1,35 @@
+@import "@/styles/helpers/helpers-all.scss";
+
+.item {
+  &:nth-child(2n + 1) svg {
+    @include bp($tablet_max, min) {
+      width: 9.9rem;
+      height: 3.3rem;
+    }
+
+    @include bp($tablet_max - 1) {
+      width: 4.4rem;
+      height: 1.5rem;
+    }
+  }
+
+  &:nth-child(2n + 2) svg {
+    @include bp($tablet_max, min) {
+      width: 13.2rem;
+      height: 6.7rem;
+    }
+
+    @include bp($tablet_max - 1) {
+      width: 5.9rem;
+      height: 3rem;
+    }
+  }
+
+  @include bp($tablet_max, min) {
+    padding: 0 3.7rem 3.7rem 0;
+  }
+
+  @include bp($tablet_max - 1) {
+    padding: 0 1.7rem 1.7rem 0;
+  }
+}

@@ -1,0 +1,21 @@
+@import "@/styles/helpers/helpers-all.scss";
+
+.header__column {
+  // padding: 0 2rem 2rem 0;
+
+  &.header__column--hidden_mod {
+    display: none;
+  }
+
+  @include bp($tablet_max, min) {
+    &.header__column--mobile_mod {
+      display: none;
+    }
+  }
+
+  @include bp($tablet_max - 1) {
+    &.header__column--desktop_mod {
+      display: none;
+    }
+  }
+}

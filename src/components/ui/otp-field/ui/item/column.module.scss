@@ -1,0 +1,11 @@
+@import "@/styles/helpers/helpers-all.scss";
+
+.column {
+  @include bp($tablet_max, min) {
+    padding: 0 4.5rem 4.5rem 0;
+  }
+
+  @include bp($tablet_max - 1) {
+    padding: 0 2rem 2rem 0;
+  }
+}

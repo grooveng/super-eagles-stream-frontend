@@ -1,0 +1,29 @@
+@import "@/styles/helpers/helpers-all.scss";
+
+.typography__node {
+  &.typography__node--mobile_hidden_mod {
+    .typography--override_mobile_mod & {
+      @include bp($tablet_min - 1) {
+        display: none;
+      }
+    }
+    .typography:not(.typography--override_mobile_mod) & {
+      @include bp($tablet_max - 1) {
+        display: none;
+      }
+    }
+  }
+  &.typography__node--desktop_hidden_mod {
+    .typography--override_mobile_mod & {
+      @include bp($tablet_min, min) {
+        display: none;
+      }
+    }
+
+    .typography:not(.typography--override_mobile_mod) & {
+      @include bp($tablet_max, min) {
+        display: none;
+      }
+    }
+  }
+}

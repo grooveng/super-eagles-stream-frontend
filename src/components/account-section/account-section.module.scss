@@ -1,0 +1,286 @@
+@import "@/styles/helpers/helpers-all.scss";
+
+.account {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: calc(100vh - var(--height-header));
+  display: flex;
+  flex-direction: column;
+  // overflow: hidden;
+
+  @include bp($tablet_max, min) {
+    padding-top: 4rem;
+    justify-content: flex-end;
+  }
+
+  @include bp($desktop_sm) {
+    // height: 100%;
+  }
+
+  @include bp($tablet_max - 1) {
+    padding: 5.6rem var(--gl-hr-indent);
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+
+      width: 100%;
+      height: 100%;
+
+      background-color: var(--dark);
+      opacity: 0.85;
+    }
+  }
+
+  @include bp($tablet_max) {
+    height: 100%;
+  }
+}
+
+.account__bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+
+  width: 100%;
+  height: 100%;
+
+  picture {
+    display: block;
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    // background-color: var(--dark);
+
+    @include bp($tablet_max, min) {
+      opacity: 0.96;
+    }
+
+    @include bp($tablet_max - 1) {
+      opacity: 0.82;
+    }
+  }
+}
+
+.account__nav {
+  position: relative;
+  z-index: 5;
+  display: flex;
+  justify-content: center;
+
+  &:not(:last-child) {
+    margin-bottom: 5.6rem;
+  }
+
+  @include bp($tablet_max, min) {
+    flex: 1 1 auto;
+  }
+}
+
+.account__row {
+  @include bp($tablet_max, min) {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 -2rem -2rem 0;
+    align-items: flex-end;
+  }
+
+  @include bp($tablet_max - 1) {
+    position: relative;
+  }
+}
+
+.account__column {
+  @include bp($tablet_max, min) {
+    // position: fixed;
+    // left: 0;
+    // top: 75px;
+    padding: 0 2rem 2rem 0;
+    &:nth-child(2n + 1) {
+      width: 43%;
+      padding-top: 0.8rem;
+      margin-top: 10rem;
+    }
+
+    &:nth-child(2n + 2) {
+      position: relative;
+      height: 100%;
+      width: 57%;
+
+      &.account__column--height_mod {
+        margin-top: 4rem;
+        height: 89vh;
+      }
+    }
+  }
+}
+
+.account__container {
+  @include bp($tablet_max, min) {
+    position: relative;
+  }
+}
+
+.account__wrap {
+  position: relative;
+
+
+
+  @include bp($tablet_max - 1) {
+    position: absolute;
+    z-index: -1;
+    top: 1.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+
+    width: 30rem;
+    // height: 106.8%;
+    height: 43.6rem;
+
+    img {
+      object-position: top;
+    }
+  }
+}
+
+.account__image {
+  position: relative;
+  width: 100%;
+
+  picture {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+  }
+
+  @include bp($tablet_max, min) {
+    // padding-bottom: 99%;
+    padding-bottom: 96%;
+  }
+
+  @include bp($tablet_max - 1) {
+    height: 100%;
+  }
+}
+
+.account__description {
+  position: absolute;
+  bottom: 0;
+  display: flex;
+}
+
+.account__body {
+  overflow-y: auto;
+  height: 100%;
+
+  display: flex;
+  align-items: center;
+  min-height: 100%;
+
+  // @include bp($tablet_max, min) {
+  //   padding: 2rem calc(var(--gl-hr-indent) + 3.4rem) 10rem;
+  // }
+}
+
+.account__content {
+  text-align: center;
+  height: auto;
+
+  margin-left: auto;
+  margin-right: auto;
+
+  color: var(--light-2);
+
+  @include bp($tablet_max, min) {
+    max-width: 63rem;
+  }
+
+  &.account__content--sm {
+    @include bp($tablet_max, min) {
+      max-width: 56rem;
+    }
+  }
+
+  @include bp($tablet_max - 1) {
+    position: relative;
+    z-index: 4;
+    max-width: 50rem;
+  }
+}
+
+.account__title {
+  font-family: var(--font-baguede);
+  strong {
+    color: var(--primary-color-3);
+  }
+
+  &:not(:last-child) {
+    @include bp($tablet_max, min) {
+      margin-bottom: 4.2rem;
+    }
+
+    @include bp($tablet_max - 1) {
+      margin-bottom: 0.6rem;
+    }
+  }
+}
+
+.account__subtitle {
+  font-family: var(--font-bw-modelica);
+  letter-spacing: -0.04em;
+  font-weight: 700;
+
+  color: #989899;
+
+  @include bp($tablet_max, min) {
+    font-size: 2rem;
+  }
+
+  @include bp($tablet_max - 1) {
+    font-size: 1.2rem;
+  }
+
+  &:not(:last-child) {
+    @include bp($tablet_max, min) {
+      .account__content--subtitle_sm_offset & {
+        margin-bottom: 3.6rem;
+      }
+
+      .account__content--subtitle_base_offset & {
+        margin-bottom: 4.6rem;
+      }
+
+      .account__content--subtitle_md_offset & {
+        margin-bottom: 7.2rem;
+      }
+    }
+
+    @include bp($tablet_max - 1) {
+      margin-bottom: 3rem;
+    }
+  }
+}
+
+.account__children {
+  @include bp($tablet_max - 1) {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    // min-height: 32.8rem;
+    width: 100%;
+  }
+}

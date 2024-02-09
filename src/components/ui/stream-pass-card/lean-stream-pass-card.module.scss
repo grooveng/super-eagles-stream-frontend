@@ -1,0 +1,362 @@
+@import "@/styles/helpers/helpers-all.scss";
+
+.card {
+  position: relative;
+  cursor: pointer;
+  width: 300px;
+  min-width: 280px;
+  z-index: 1;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+
+  @include bg_img();
+
+  .img__main_in {
+    width: 100%;
+    height: 100%;
+
+    @include responsive_img();
+
+    img {
+      border-top-right-radius: 3px;
+      border-top-left-radius: 3px;
+    }
+  }
+
+  .media__wrap {
+    height: 280px;
+  }
+
+  .event_mode {
+    top: 3%;
+    left: 0;
+    position: absolute;
+    font-size: 0.85rem;
+    padding: 0.5rem 1rem;
+    background-color: rgba(0, 0, 0, 0.8);
+
+    p {
+      font-family: var(--font-baguede);
+    }
+  }
+
+  .card_footer {
+    padding-top: 3rem;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    @include bp($desktop_xl, min) {
+      padding-top: 0.85rem !important;
+    }
+
+    @include bp($tablet_max - 1) {
+      padding-top: 1rem;
+    }
+
+    .footer_text {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      width: 100%;
+
+      .event_date {
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+      }
+
+      @include bp($desktop_xl, min) {
+        .artist_name {
+          font-size: 1.5rem !important;
+          font-weight: 600;
+        }
+
+        .event_name {
+          font-size: 1rem !important;
+          font-weight: 200;
+        }
+
+        .event_date {
+          font-size: 0.65rem !important;
+          font-weight: 200;
+        }
+
+        .event_duration {
+          font-size: 0.65rem !important;
+        }
+      }
+
+      @include bp($tablet_max, min) {
+        .artist_name {
+          font-size: 3rem;
+          font-weight: 600;
+        }
+
+        .event_name {
+          font-size: 2rem;
+          font-weight: 200;
+        }
+
+        .event_date {
+          font-size: 1.45rem;
+          font-weight: 200;
+        }
+
+        .event_duration {
+          font-size: 1.45rem;
+        }
+      }
+
+      @include bp($tablet_max - 1) {
+        .artist_name {
+          font-size: 2.23rem;
+        }
+
+        .event_name {
+          font-size: 1.25rem;
+        }
+
+        .event_date {
+          font-size: 1rem;
+        }
+
+        .event_duration {
+          font-size: 1rem;
+        }
+      }
+
+      @include bp($mobile_lg) {
+        .artist_name {
+          font-size: 2rem;
+        }
+
+        .event_name {
+          font-size: 1.2rem;
+        }
+
+        .event_date {
+          font-size: 0.95rem;
+        }
+
+        .event_duration {
+          font-size: 0.95rem;
+        }
+      }
+      .artist_name {
+        text-transform: capitalize;
+      }
+
+      .event_name,
+      .event_date {
+        color: #ffffff;
+      }
+    }
+  }
+}
+
+.disabled-card {
+  position: relative;
+  cursor: pointer;
+  width: 300px;
+  min-width: 280px;
+  z-index: 1;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  background-color: #83838340;
+  transition: all 3ms ease-in;
+
+  @include bg_img();
+
+  .disabled-img__main_in {
+    width: 100%;
+    height: 100%;
+
+    @include responsive_img();
+
+    img {
+      border-top-right-radius: 3px;
+      border-top-left-radius: 3px;
+    }
+  }
+
+  .disabled-media__wrap {
+    height: 280px;
+  }
+
+  .disabled-unavailable {
+    display: none;
+  }
+
+  &:hover {
+    .disabled-unavailable {
+      background-color: black;
+      opacity: 0.9;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 12;
+
+      @include bp($desktop_xl, min) {
+        p {
+          font-size: 0.85rem !important;
+        }
+      }
+
+      @include bp($tablet_max, min) {
+        p {
+          font-size: 2rem;
+        }
+      }
+
+      @include bp($tablet_max - 1) {
+        p {
+          font-size: 1.5rem;
+        }
+      }
+
+      @include bp($mobile_lg) {
+        p {
+          font-size: 1.3rem;
+        }
+      }
+    }
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #000000;
+    opacity: 0.85;
+    z-index: 2;
+  }
+
+  .disabled_card_footer {
+    padding-top: 3rem;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: transparent;
+
+    @include bp($desktop_xl, min) {
+      padding-top: 0.85rem !important;
+    }
+
+    @include bp($tablet_max - 1) {
+      padding-top: 1rem;
+    }
+
+    .disabled_footer_text {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      padding: 0 0.5rem;
+      width: 100%;
+
+      .disabled_event_date {
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+      }
+
+      @include bp($desktop_xl, min) {
+        .disabled_artist_name {
+          font-size: 1.5rem !important;
+          font-weight: 600;
+        }
+
+        .disabled_event_name {
+          font-size: 1rem !important;
+          font-weight: 200;
+        }
+
+        .disabled_event_date {
+          font-size: 0.65rem !important;
+          font-weight: 200;
+        }
+
+        .disabled_event_duration {
+          font-size: 0.65rem !important;
+        }
+      }
+
+      @include bp($tablet_max, min) {
+        .disabled_artist_name {
+          font-size: 3rem;
+          font-weight: 600;
+        }
+
+        .disabled_event_name {
+          font-size: 2rem;
+          font-weight: 200;
+        }
+
+        .disabled_event_date {
+          font-size: 1.45rem;
+          font-weight: 200;
+        }
+
+        .disabled_event_duration {
+          font-size: 1.45rem;
+        }
+      }
+
+      @include bp($tablet_max - 1) {
+        .disabled_artist_name {
+          font-size: 2.23rem;
+        }
+
+        .disabled_event_name {
+          font-size: 1.25rem;
+        }
+
+        .disabled_event_date {
+          font-size: 1rem;
+        }
+
+        .disabled_event_duration {
+          font-size: 1rem;
+        }
+      }
+
+      @include bp($mobile_lg) {
+        .disabled_artist_name {
+          font-size: 2rem;
+        }
+
+        .disabled_event_name {
+          font-size: 1.2rem;
+        }
+
+        .disabled_event_date {
+          font-size: 0.95rem;
+        }
+
+        .disabled_event_duration {
+          font-size: 0.95rem;
+        }
+      }
+      .disabled_artist_name {
+        text-transform: capitalize;
+      }
+
+      .disabled_event_name,
+      .disabled_event_date {
+        color: #ffffff;
+      }
+    }
+  }
+}

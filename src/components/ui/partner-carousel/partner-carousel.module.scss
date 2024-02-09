@@ -1,0 +1,23 @@
+@import "@/styles/helpers/helpers-all.scss";
+
+.partner_carousel {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  column-gap: 5rem;
+}
+
+.picture_wrap {
+  width: max-content;
+  height: 4rem;
+
+  img {
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+  }
+
+  @include bp($tablet_max - 1) {
+    height: 3rem;
+  }
+}

@@ -1,0 +1,150 @@
+@import "@/styles/helpers/helpers-all.scss";
+
+.table-cell {
+  color: #fff !important;
+  font-size: 11px !important;
+
+
+  border-bottom: 0.3px solid rgba(230, 225, 225, 0.286) !important;
+
+  @include bp($mobile_lg) {
+    font-size: 5px !important;
+  }
+
+  @include bp($mobile_md) {
+    padding: 6px !important;
+  }
+
+  @include bp($mobile_sm) {
+    font-size: 5px !important;
+  }
+
+  @include bp($mobile_xs) {
+    font-size: 3px;
+    padding: 2px !important;
+  }
+}
+
+.table-header-container {
+  background: #1c1c1c;
+}
+
+.transaction-type {
+  color: #f7ffba;
+  opacity: 0.45;
+  font-size: 9px;
+  text-transform: uppercase;
+  font-family: var(--font-baguede);
+
+  @include bp($mobile_lg) {
+    font-size: 8px !important;
+  }
+
+  @include bp($mobile_sm) {
+    font-size: 6px !important;
+  }
+}
+
+.transaction-streampass {
+  color: #fee187;
+}
+
+.transaction-status__success {
+  color: #ebf3af;
+  font-size: 14px;
+
+  @include bp($mobile_lg) {
+    font-size: 12px !important;
+  }
+}
+
+.transaction-status__failed {
+  color: #f24646;
+  font-size: 14px;
+
+  @include bp($mobile_lg) {
+    font-size: 10px !important;
+  }
+}
+
+.typography {
+  color: #fff;
+}
+
+.more-details {
+  color: #fff;
+  height: 75px;
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  gap: 25px;
+
+  .details-container {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    font-family: var(--font-bw-modellica);
+
+    p:first-child {
+      color: #fff;
+      opacity: 0.84;
+      font-size: 10px;
+    }
+
+    p:last-child {
+      color: #fff;
+      opacity: 0.6;
+      font-size: 11px;
+    }
+  }
+
+  @include bp($mobile_lg) {
+    padding: 20px;
+    height: 60px;
+
+    .details-container {
+      p:first-child {
+        font-size: 6px;
+      }
+
+      p:last-child {
+        font-size: 5px;
+      }
+    }
+  }
+
+  @include bp($mobile_md) {
+    padding: 20px;
+    height: 35px;
+    gap: 14px;
+
+    .details-container {
+      gap: 10px;
+      p:first-child {
+        font-size: 5px;
+      }
+
+      p:last-child {
+        font-size: 4px;
+      }
+    }
+  }
+
+  @include bp($mobile_xs) {
+    padding: 12px 13px 12px 13px;
+    height: 25px;
+    gap: 13px;
+
+    .details-container {
+      gap: 12px;
+      p:first-child {
+        font-size: 4px;
+      }
+
+      p:last-child {
+        font-size: 3px;
+      }
+    }
+  }
+}

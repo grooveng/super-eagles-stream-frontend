@@ -1,0 +1,231 @@
+import React from "react";
+
+export function TicketIcon() {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="76.132"
+      height="76.132"
+      viewBox="0 0 76.132 76.132"
+    >
+      <defs>
+        <clipPath id="clip-path">
+          <path
+            id="path4602"
+            d="M0-682.665H76.132v76.132H0Z"
+            transform="translate(0 682.665)"
+            fill="currentColor"
+          />
+        </clipPath>
+      </defs>
+      <g id="g4596" transform="translate(0 0)">
+        <g id="g4598" transform="translate(0)">
+          <g id="g4600" clip-path="url(#clip-path)">
+            <g id="g4606" transform="translate(33.687 21.463)">
+              <path
+                id="path4608"
+                d="M0-304.279a5.865,5.865,0,0,1,2.757,6.98,1.305,1.305,0,0,0,.612,1.556l3.253,1.785,21-38.146-18.9-10.367-2.317,4.208"
+                transform="translate(0 342.472)"
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.5"
+              />
+            </g>
+            <g id="g4610" transform="translate(42.674 1.115)">
+              <path
+                id="path4612"
+                d="M-219.149-89.682l-1.839-1.009a1.31,1.31,0,0,0-1.643.318,5.887,5.887,0,0,1-7.38,1.419,5.865,5.865,0,0,1-2.757-6.979,1.3,1.3,0,0,0-.612-1.556l-5.995-3.288a1.309,1.309,0,0,0-1.777.514l-5.506,10"
+                transform="translate(246.657 100.939)"
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.5"
+              />
+            </g>
+            <g id="g4614" transform="translate(67.359 14.652)">
+              <path
+                id="path4616"
+                d="M0-122.6l7.5-13.616a1.3,1.3,0,0,0-.518-1.773"
+                transform="translate(0 137.99)"
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.5"
+              />
+            </g>
+            <g id="g4618" transform="translate(40.095 16.071)">
+              <path
+                id="path4620"
+                d="M0-76.475l2.317-4.208,18.9,10.368L.214-32.17l2.741,1.5a1.309,1.309,0,0,0,1.777-.514L27.263-72.1,1.8-86.074"
+                transform="translate(0 86.074)"
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.5"
+              />
+            </g>
+            <g id="g4622" transform="translate(49.662 13.547)">
+              <path
+                id="path4624"
+                d="M0,0,14.457,7.931"
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.5"
+              />
+            </g>
+            <g id="g4626" transform="translate(34.687 46.409)">
+              <path
+                id="path4628"
+                d="M-9.54-13.869l1.889.679,3.2-2.42-.322,4,2.932,2.287L-5.539-8.1-6.924-4.265-8.886-7.517l-1.851.04"
+                transform="translate(10.737 15.609)"
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.5"
+              />
+            </g>
+            <g id="g4630" transform="translate(40.003 29.507)">
+              <path
+                id="path4632"
+                d="M0-81.574,5.638-91.813"
+                transform="translate(0 91.813)"
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.5"
+              />
+            </g>
+            <g id="g4634" transform="translate(43.572 31.464)">
+              <path
+                id="path4636"
+                d="M0-81.574,5.637-91.813"
+                transform="translate(0 91.813)"
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.5"
+              />
+            </g>
+            <g id="g4638" transform="translate(47.141 33.422)">
+              <path
+                id="path4640"
+                d="M0-81.574,5.637-91.813"
+                transform="translate(0 91.813)"
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.5"
+              />
+            </g>
+            <g id="g4642" transform="translate(5.258 27.643)">
+              <path
+                id="path4644"
+                d="M-63.851,0l-8.015,42.783,3.648.687a1.306,1.306,0,0,0,1.461-.813,5.871,5.871,0,0,1,6.566-3.64,5.884,5.884,0,0,1,4.8,5.78,1.309,1.309,0,0,0,1.067,1.289l3.648.687,8.015-42.783Z"
+                transform="translate(71.865)"
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.5"
+              />
+            </g>
+            <g id="g4646" transform="translate(9.736 6.088)">
+              <path
+                id="path4648"
+                d="M-97.014-20.533a1.309,1.309,0,0,0-1.067-1.289l-6.722-1.265a1.306,1.306,0,0,0-1.527,1.04l-2.861,15.272,29.913,5.631,2.861-15.272a1.309,1.309,0,0,0-1.046-1.525l-6.722-1.265a1.306,1.306,0,0,0-1.461.813,5.871,5.871,0,0,1-6.566,3.639A5.883,5.883,0,0,1-97.014-20.533Z"
+                transform="translate(109.192 23.11)"
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.5"
+              />
+            </g>
+            <g id="g4650" transform="translate(1.115 22.423)">
+              <path
+                id="path4652"
+                d="M-47.548-112.816l-5.946,31.739a1.308,1.308,0,0,0,1.046,1.525l3.074.579,8.015-42.783,21.192,3.989-8.015,42.783,3.074.578a1.306,1.306,0,0,0,1.527-1.04l8.6-45.9L-44.9-126.977l-1.582,8.445"
+                transform="translate(53.516 126.977)"
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.5"
+              />
+            </g>
+            <g id="g4654" transform="translate(17.682 17.867)">
+              <path
+                id="path4656"
+                d="M0,0,16.212,3.052"
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.5"
+              />
+            </g>
+            <g id="g4658" transform="translate(13.717 51.801)">
+              <path
+                id="path4660"
+                d="M-47.83,0l.935,3.9,3.5,1.254-3.136,2.315-.128,4.075-2.873-2.474-3.576,1.265,1.36-3.844L-53.833,3.2l3.714.1Z"
+                transform="translate(53.833)"
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.5"
+              />
+            </g>
+            <g id="g4662" transform="translate(16.703 34.288)">
+              <path
+                id="path4664"
+                d="M0-91.49l2.151-11.484"
+                transform="translate(0 102.974)"
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.5"
+              />
+            </g>
+            <g id="g4666" transform="translate(20.705 35.041)">
+              <path
+                id="path4668"
+                d="M0-91.49l2.151-11.484"
+                transform="translate(0 102.974)"
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.5"
+              />
+            </g>
+            <g id="g4670" transform="translate(24.707 35.795)">
+              <path
+                id="path4672"
+                d="M0-91.49l2.151-11.484"
+                transform="translate(0 102.974)"
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.5"
+              />
+            </g>
+          </g>
+        </g>
+      </g>
+    </svg>
+  );
+}

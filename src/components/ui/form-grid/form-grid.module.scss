@@ -1,0 +1,44 @@
+@import "@/styles/helpers/form.scss";
+
+//---------------------------------------------FormGrid
+.component {
+  @include bp($tablet_max, min) {
+    &.component--offset_mod {
+      margin-bottom: 5rem;
+    }
+
+    &.component--offset_sm_mod {
+      margin-bottom: 6.4rem;
+    }
+
+    &.component--offset_regular_mod {
+      margin-bottom: 7.2rem;
+    }
+
+    &.component--offset_int_mod {
+      margin-bottom: 5rem;
+    }
+
+    &.component--offset_md_mod {
+      margin-bottom: 9.2rem;
+    }
+
+    &.component--offset_lg_mod {
+      margin-bottom: 13rem;
+    }
+  }
+
+  @include bp($tablet_max - 1) {
+    &:not(:last-child) {
+      margin-bottom: 6rem;
+    }
+  }
+
+  &.component--height_mod {
+    display: flex;
+    align-items: flex-end;
+    min-height: 30rem;
+  }
+}
+
+//---------------------------------------------FormGrid###

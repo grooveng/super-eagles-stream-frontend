@@ -1,0 +1,15 @@
+@import "@/styles/helpers/helpers-all.scss";
+
+.wrapper {
+  display: block;
+  font-family: var(--font-bw-modelica);
+
+  a {
+    color: var(--light);
+    font-size: normal;
+  }
+
+  &:not(:last-child) {
+    margin-bottom: 1.4rem;
+  }
+}

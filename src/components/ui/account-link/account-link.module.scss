@@ -1,0 +1,12 @@
+@import "@/styles/helpers/helpers-all.scss";
+
+.wrapper {
+  display: block;
+  font-family: var(--font-bw-modelica);
+  margin-top: 10%;
+
+  a {
+      color: var(--light);
+      font-size: normal;
+    }
+}

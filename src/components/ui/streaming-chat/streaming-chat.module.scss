@@ -1,0 +1,420 @@
+@import "@/styles/helpers/helpers-all.scss";
+
+.chat {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+   @include bp($tablet_max - 1) {
+    height: 60.5rem;
+  }
+}
+
+.head {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+
+  @include bp($tablet_max, min) {
+    padding: 2rem 3rem 1.2rem;
+  }
+
+  @include bp($tablet_max - 1) {
+    padding: 1.6rem 1.6rem;
+  }
+}
+
+.head__bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  background: black;
+  height: 100%;
+
+  z-index: -1;
+
+  &:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background-color: var(--dark);
+    opacity: 0.86;
+
+    z-index: 2;
+  }
+}
+
+.head-print__bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  background: black;
+  height: 5%;
+
+  z-index: -1;
+}
+
+.name {
+  width: 34%;
+
+  display: flex;
+  align-items: center;
+  padding-right: 2rem;
+}
+
+.name__title {
+  max-width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  .name__subtitle {
+    font-size: .7rem;
+    line-height: 1;
+    text-align: left;
+    // margin-bottom: .5rem;
+    font-family: var(--font-bw-modelica);
+  }
+
+  @include bp($tablet_max, min) {
+    font-size: 2.4rem;
+  }
+
+  @include bp($tablet_max - 1) {
+    font-size: 1.4rem;
+  }
+
+  &:not(:last-child) {
+    @include bp($tablet_max, min) {
+      margin-right: 0.8rem;
+    }
+
+    @include bp($tablet_max - 1) {
+      margin-right: 0.4rem;
+    }
+  }
+}
+
+.name__icon {
+  position: relative;
+
+  flex-shrink: 0;
+  margin-top: 4px;
+
+  @include bp($tablet_max, min) {
+    width: 2.4rem;
+    height: 2.4rem;
+  }
+
+  @include bp($tablet_max - 1) {
+    margin-top: 5px;
+    width: 1.2rem;
+    height: 1.2rem;
+  }
+}
+
+.avatar {
+  position: relative;
+
+  margin-right: auto;
+
+  background-color: tomato;
+
+  border-radius: 50%;
+  overflow: hidden;
+
+  @include bp($tablet_max, min) {
+    width: 4rem;
+    height: 4rem;
+  }
+
+  @include bp($tablet_max - 1) {
+    width: 2rem;
+    height: 2rem;
+  }
+}
+
+.username_title {
+  width: 30%;
+  padding-right: 1rem;
+
+
+  @include bp($tablet_max, min) {
+    font-size: 1.7rem;
+  }
+
+  @include bp($tablet_max - 1) {
+    font-size: 1rem;
+  }
+}
+
+.amount_title {
+  width: 26%;
+
+  text-transform: uppercase;
+  color: #919A57;
+
+  @include bp($tablet_max, min) {
+    font-size: 1.6rem;
+  }
+
+  @include bp($tablet_max - 1) {
+    font-size: 1rem;
+  }
+}
+
+
+.default-head {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  @include bp($tablet_max, min) {
+    padding: 2rem 3rem 1.2rem;
+  }
+
+  @include bp($tablet_max - 1) {
+    padding: 1.6rem 1.6rem;
+  }
+}
+
+.default-head__bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  background: black;
+  height: 100%;
+
+  z-index: -1;
+
+  &:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background-color: var(--dark);
+    opacity: 0.86;
+
+    z-index: 2;
+  }
+}
+
+.default-head-print__bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  background: black;
+  height: 5%;
+
+  z-index: -1;
+}
+
+
+
+.default-name {
+  // width: 34%;
+  
+  display: flex;
+  align-items: center;
+  padding-right: 1.5rem;
+}
+
+.default-name__title {
+  max-width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  .default-name__subtitle {
+    font-size: .7rem;
+    line-height: 1;
+    text-align: left;
+    // margin-bottom: .5rem;
+    font-family: var(--font-bw-modelica);
+  }
+
+  @include bp($tablet_max, min) {
+    font-size: 2.4rem;
+  }
+
+  @include bp($tablet_max - 1) {
+    font-size: 1.42rem;
+  }
+
+  &:not(:last-child) {
+    @include bp($tablet_max, min) {
+      margin-right: 0.8rem;
+    }
+
+    @include bp($tablet_max - 1) {
+      margin-right: 0.4rem;
+    }
+  }
+}
+
+.default-name__icon {
+  position: relative;
+
+  flex-shrink: 0;
+  margin-top: 4px;
+
+  @include bp($tablet_max, min) {
+    width: 2.4rem;
+    height: 2.4rem;
+  }
+
+  @include bp($tablet_max - 1) {
+    margin-top: 5px;
+    width: 1.2rem;
+    height: 1.2rem;
+  }
+}
+
+.default-avatar {
+  position: relative;
+
+
+  // background-color: tomato;
+
+  border-radius: 50%;
+  border: 1px solid white;
+  overflow: hidden;
+
+  @include bp($tablet_max, min) {
+    width: 4rem;
+    height: 4rem;
+  }
+
+  @include bp($tablet_max - 1) {
+    width: 2rem;
+    height: 2rem;
+  }
+}
+
+.default-username_title {
+  flex: 2;
+  padding-right: 1rem;
+  align-self: center;
+
+
+
+  @include bp($tablet_max, min) {
+    margin: 1.2rem 0;
+    font-size: 1.4rem;
+  }
+
+  @include bp($tablet_max - 1) {
+    font-size: .89rem;
+    // text-align: center;
+  }
+}
+
+
+
+
+
+
+// main
+
+.main {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.main_head {
+  background-color: #1C1C1C;
+
+  @include bp($tablet_max, min) {
+    padding: 1.5rem 3rem 1.4rem;
+  }
+
+  @include bp($tablet_max - 1) {
+    padding: 1rem 1.4rem;
+  }
+}
+
+.main_head__subtitle {
+  font-size: .7rem;
+  line-height: 1;
+  // text-align: center;
+  margin-bottom: 3px;
+  font-family: var(--font-bw-modelica);
+
+
+  &:not(:last-child) {
+    // margin-bottom: 1.1rem;
+  }
+}
+
+.main_head__row {
+  display: flex;
+  align-items: center;
+  // text-align: center;
+  justify-content: space-between;
+  line-height: 1;
+}
+
+.main_head__title {
+  padding-right: 2rem;
+  flex-basis: 40%;
+
+  @include bp($tablet_max, min) {
+    font-size: 1.6rem;
+  }
+
+  @include bp($tablet_max - 1) {
+    font-size: 1rem;
+  }
+
+  // &:nth-child(1) {
+  //   width: 38%;
+
+  //   @include bp($tablet_max, min) {
+  //     font-size: 1.6rem;
+  //   }
+
+  //   @include bp($tablet_max - 1) {
+  //   }
+  // }
+
+  // &:nth-child(2) {
+  //   width: 38%;
+  // }
+
+  // &:nth-child(3) {
+  //   width: 24%;
+  // }
+}
+
+// body
+
+.main_body {
+  width: 100%;
+  min-height: 10rem;
+  flex-grow: 1;
+
+  background-color: var(--light);
+}
+
+
+

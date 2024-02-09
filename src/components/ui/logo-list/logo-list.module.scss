@@ -1,0 +1,17 @@
+@import "@/styles/helpers/helpers-all.scss";
+
+.logo_list {
+  display: flex;
+  align-items: center;
+  overflow-x: auto;
+  overflow-y: hidden;
+
+  @include bp($tablet_max, min) {
+    margin: 0 -3.7rem -3.7rem 0;
+  }
+
+  @include bp($tablet_max - 1) {
+    margin: 0 -1.7rem -1.7rem 0;
+    justify-content: flex-end;
+  }
+}

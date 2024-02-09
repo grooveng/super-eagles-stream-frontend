@@ -1,0 +1,29 @@
+@import "@/styles/helpers/helpers-all.scss";
+
+//---------------------------------------------InputLabel
+.label {
+  display: block;
+  font-family: var(--font-bw-modelica);
+  color: #747474;
+  font-weight: 700;
+  text-align: left;
+
+  @include bp($tablet_max, min) {
+    font-size: 1.5rem;
+    margin-bottom: 0.8rem;
+  }
+
+  @include bp($tablet_max - 1) {
+    font-size: 12px;
+    margin-bottom: 0.6rem;
+  }
+}
+
+.secondary{
+  color: #FEE187;
+  @include bp($mobile_sm){
+    font-size: 8px;
+  }
+}
+
+//---------------------------------------------InputLabel###

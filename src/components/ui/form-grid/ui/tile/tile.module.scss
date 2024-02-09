@@ -1,0 +1,43 @@
+@import "@/styles/helpers/helpers-all.scss";
+
+//---------------------------------------------Tile
+.tile {
+  &.tile--full_width {
+    width: 100%;
+  }
+
+  @include bp($tablet_max, min) {
+    padding-right: 2rem;
+    padding-bottom: 2.4rem;
+
+    &.tile--half_width {
+      width: 50%;
+    }
+
+    &.tile--third_width {
+      width: 33.333%;
+    }
+
+    &.tile--seventy_width {
+      width: 68%;
+    }
+
+    &.tile--thirty_width {
+      width: 32%;
+    }
+  }
+
+  @include bp($tablet_max - 1) {
+    width: 100%;
+
+    &:not(:last-child) {
+      margin-bottom: 2.6rem;
+    }
+  }
+
+  &.tile--terms_mod {
+    padding-top: 2.4rem;
+  }
+}
+
+//---------------------------------------------Tile###

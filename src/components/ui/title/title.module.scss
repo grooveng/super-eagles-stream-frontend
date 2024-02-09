@@ -1,0 +1,68 @@
+@import "@/styles/helpers/helpers-all.scss";
+
+.title {
+  &.title--xxs_mod {
+    @include xsmallTitle;
+  }
+
+  &.title--xs_mod {
+    @include smallTitle;
+  }
+
+  &.title--base_mod {
+    @include baseTitle;
+  }
+
+  &.title--bigger_mod  {
+    @include biggerTitle;
+  }
+
+
+  &.title--center_mod {
+    text-align: center;
+  }
+
+  &.title--decor_mod {
+    @include bp($tablet_max, min) {
+      position: relative;
+      padding-bottom: 1.8rem;
+
+      &:before {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+
+        width: 22.2rem;
+        height: 0.4rem;
+
+        background-color: var(--light);
+      }
+    }
+  }
+
+  &.title--decor--newFaq_mod {
+    color: #fff4e9;
+
+    &:before {
+      display: none;
+    }
+  }
+
+  &.title--decor--yellow {
+    color: #f5c350;
+
+    &:before {
+      display: none;
+    }
+  }
+
+  &.title--decor--secondary_mod {
+    color: #de703d;
+    letter-spacing: -0.04em;
+
+    &:before {
+      background-color: var(--primary-color-3);
+    }
+  }
+}

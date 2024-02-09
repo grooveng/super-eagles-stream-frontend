@@ -1,0 +1,7 @@
+@import "@/styles/helpers/helpers-all.scss";
+
+.footer-nav-mobile {
+  @include bp($mobile_lg) {
+    width: 100%;
+  }
+}

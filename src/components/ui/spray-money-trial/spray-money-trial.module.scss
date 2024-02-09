@@ -1,0 +1,44 @@
+.money-spray__success{
+    width: 90%;
+    // max-width: 200px;
+    margin: 2rem auto 3rem;
+    padding-top: 2rem;
+
+    // display: flex;
+    flex-direction: column;
+    gap: 2rem;
+
+    text-align: center;
+    
+    .sprayMoney__success {
+        max-width: 100%;
+        margin-bottom: 1.4rem;
+    }
+
+    .spray-moneySuccess-message {
+        color: #67E083;
+    }
+}
+
+
+.money-spray___failed{
+    width: 90%;
+    margin: 2rem auto;
+    padding-top: 4rem;
+
+    // display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    text-align: center;
+    
+    .sprayMoney__failed {
+        max-width: 100%;
+       margin-bottom: 1rem;
+    }
+
+    .sprayMoneyfailed-message{
+        margin: 0 auto;
+        color: #FF0000;
+        margin-bottom: 1.4rem;
+    }
+}

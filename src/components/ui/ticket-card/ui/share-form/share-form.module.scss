@@ -1,0 +1,184 @@
+@import "@/styles/helpers/helpers-all.scss";
+
+.share {
+  top: 0;
+  left: 0;
+  z-index: 5;
+
+  width: 100%;
+  height: 100%;
+
+  // background-color: var(--dark);
+  border: 1px solid #707070;
+  opacity: 0.94;
+
+  &.share--enter_state {
+    opacity: 0;
+  }
+
+  &.share--enter_active_state {
+    opacity: 1;
+    transition: opacity 300ms ease-in-out;
+  }
+
+  &.share--exit_state {
+    opacity: 1;
+  }
+
+  &.share--exit_active_state {
+    opacity: 0;
+    transition: opacity 300ms ease-in-out;
+  }
+}
+
+.share__body {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+
+  width: 100%;
+  height: 100%;
+  padding: 4.2rem 4.5rem 2rem;
+
+  @include bp($desktop, min) {
+    padding: 30px;
+  }
+
+  overflow-x: hidden;
+  overflow-y: auto;
+
+  font-family: var(--font-bw-modelica);
+  // color: var(--secondary-color-7);
+  text-align: center;
+
+  -ms-overflow-style: none;
+  overflow: -moz-scrollbars-none;
+
+  &::-webkit-scrollbar {
+    width: 0;
+  }
+}
+
+.share__close {
+  position: absolute;
+  top: 2rem;
+  right: 3rem;
+  z-index: 10;
+
+  width: max(8px, 0.8rem);
+  height: max(8px, 0.8rem);
+
+  &:hover,
+  &:focus {
+    .share__close_btn {
+      &::before,
+      &::after {
+        background-color: var(--primary-color);
+      }
+    }
+  }
+}
+
+.share__close_btn {
+  position: relative;
+
+  display: block;
+  width: 100%;
+  height: 100%;
+
+  cursor: pointer;
+
+  &::before,
+  &::after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    width: 100%;
+    height: 1px;
+
+    background: var(--light);
+    transition: background 0.3s ease 0s;
+    will-change: background;
+  }
+
+  &::before {
+    transform: rotate(-45deg);
+  }
+
+  &::after {
+    transform: rotate(45deg);
+  }
+}
+
+.share__title {
+  font-size: 1.4rem;
+  font-weight: 700;
+  letter-spacing: -0.04em;
+
+  @include bp($desktop, min) {
+    font-size: 16px;
+  }
+
+  &:not(:last-child) {
+    margin-bottom: 1.6rem;
+  }
+}
+
+.share__subtitle {
+  opacity: 0.8;
+  color: var(--light);
+  font-size: 1.2rem;
+  font-weight: 500;
+  letter-spacing: -0.04em;
+
+  &:not(:last-child) {
+    margin-bottom: 2rem;
+  }
+
+  @include bp($desktop, min) {
+    font-size: 14px;
+  }
+}
+
+.share__form {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  &:not(:last-child) {
+    margin-bottom: 2rem;
+  }
+}
+
+.share__field {
+  @include bp($desktop, min) {
+    input {
+      height: 30px !important;
+      font-size: 15px !important;
+    }
+  }
+
+  @include bp($big_screen, min) {
+    input {
+      font-size: 15px !important;
+      height: 40px !important;
+    }
+  }
+
+  &:not(:last-child) {
+    margin-bottom: 1.2rem;
+  }
+}
+
+.share__disclaimer {
+  opacity: 0.8;
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: -0.04em;
+}

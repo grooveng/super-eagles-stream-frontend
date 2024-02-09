@@ -1,0 +1,152 @@
+@import "@/styles/helpers/helpers-all.scss";
+
+.action_tile {
+  display: flex;
+  width: 100%;
+  align-items: stretch;
+  align-content: stretch;
+  font-family: var(--font-baguede);
+
+  text-decoration: none;
+  cursor: pointer;
+  border: 1px solid #eaeaea;
+  transition: border-color 0.3s ease;
+
+  &:not(:last-child) {
+    margin-bottom: 2.6rem;
+  }
+
+  &:hover,
+  &:focus {
+    &.action_tile--primary_mod {
+      border-color: var(--primary-color-2);
+    }
+
+    &.action_tile--secondary_mod {
+      border-color: var(--primary-color-3);
+    }
+  }
+}
+
+.action_tile__illustration {
+  border-right: 1px solid var(--light);
+  transition: border-color 0.3s ease;
+
+  .action_tile--primary_mod:hover &,
+  .action_tile--primary_mod:focus & {
+    border-color: var(--primary-color-2);
+  }
+
+  .action_tile--secondary_mod:hover &,
+  .action_tile--secondary_mod:focus & {
+    border-color: var(--primary-color-3);
+  }
+
+  @include bp($tablet_max, min) {
+    padding: 0.8rem;
+  }
+
+  @include bp($tablet_max - 1) {
+    padding: 0.4rem;
+  }
+}
+
+.action_tile__wrap {
+  position: relative;
+  border: 1px solid #eaeaea;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  overflow: hidden;
+
+  @include bp($tablet_max, min) {
+    width: 17.6rem;
+    height: 7.2rem;
+  }
+
+  @include bp($tablet_max - 1) {
+    width: 8.7rem;
+    height: 3.6rem;
+  }
+}
+
+.action_tile__bg {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100%;
+
+  transition: opacity 0.3s ease 0s;
+
+  &.action_tile__bg--hover_state {
+    opacity: 0;
+  }
+
+  .action_tile:hover &,
+  .action_tile:focus & {
+    &:not(.action_tile__bg--hover_state) {
+      z-index: 0;
+    }
+
+    &.action_tile__bg--hover_state {
+      opacity: 1;
+    }
+  }
+}
+
+.action_tile__icon {
+  z-index: 2;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: var(--light);
+
+  @include bp($tablet_max, min) {
+    width: 13.4rem;
+    height: 3.6rem;
+  }
+
+  @include bp($tablet_max - 1) {
+    width: 3.6rem;
+    height: 2rem;
+  }
+}
+
+.action_tile__text {
+  // letter-spacing: -0.04em;
+  color: var(--light);
+  align-self: center;
+
+  strong {
+    font-weight: 400;
+
+    .action_tile--primary_mod & {
+      color: var(--primary-color-2);
+    }
+
+    .action_tile--secondary_mod & {
+      color: var(--primary-color-3);
+    }
+
+    .action_tile--mtn & {
+      color: var(--primary-color-3);
+    }
+  }
+
+  @include bp($tablet_max, min) {
+    padding: 0 3.8rem;
+    font-size: 2.4rem;
+  }
+
+  @include bp($tablet_max - 1) {
+    padding: 0 1.9rem;
+    font-size: 1.1rem;
+  }
+}

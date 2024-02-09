@@ -1,0 +1,38 @@
+@import "@/styles/helpers/form.scss";
+
+//---------------------------------------------Input
+.input {
+  &:not(.otpInput) {
+    &.inputPrimary {
+      @include search-field();
+
+      font-family: var(--font-bw-modelica);
+      padding-left: 3rem;
+
+      @include bp($tablet_max - 1) {
+        padding-left: 1.5rem;
+      }
+    }
+  }
+}
+//---------------------------------------------Input###
+
+.component {
+  position: relative;
+  border-radius: 1.5rem;
+  background-color: var(--input-bng-color);
+
+  @include bp($tablet_max - 1) {
+    border-radius: 1rem;
+  }
+}
+
+.clearButton {
+  color: var(--light);
+  font-size: 2rem;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 2rem;
+  cursor: pointer;
+}

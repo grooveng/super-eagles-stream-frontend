@@ -1,0 +1,70 @@
+@import "@/styles/helpers/helpers-all.scss";
+
+.powered_by_main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 12rem auto;
+  width: 100%;
+
+  @include bp($tablet_max - 1) {
+    margin: 4rem auto;
+  }
+}
+
+.text {
+  text-transform: uppercase;
+  padding-bottom: 1.5rem;
+
+  @include bp($tablet_max - 1) {
+    font-size: 1.1rem;
+  }
+}
+
+.svg_wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.icon {
+  cursor: pointer;
+  width: 70%;
+  height: 20px;
+  display: block;
+
+  @include bp($tablet_max - 1) {
+    svg {
+      width: 40px;
+      height: 20px;
+    }
+  }
+}
+
+.divider_wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 75px;
+
+  &:not(:last-child) {
+    @include bp($tablet_max, min) {
+      margin-right: 1rem;
+    }
+    @include bp($tablet_max - 1) {
+      margin-right: 1rem;
+    }
+  }
+}
+
+.divider {
+  height: 35px;
+  width: 2px;
+  background-color: var(--light);
+}
+
+.hidden {
+  display: none;
+}

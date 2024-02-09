@@ -1,0 +1,59 @@
+@import "@/styles/helpers/helpers-all.scss";
+
+.slide__control {
+  position: relative;
+  display: flex;
+  align-items: center;
+  color: var(--light);
+
+  transition: color 0.3s;
+  cursor: pointer;
+
+  &:before {
+    content: "";
+    position: absolute;
+    top: -3rem;
+    bottom: -3rem;
+
+    width: 100%;
+  }
+
+  svg {
+    display: block;
+
+    @include bp($tablet_max, min) {
+      width: 2.4rem;
+      height: 1.4rem;
+      margin-right: 1rem;
+    }
+
+    @include bp($tablet_max - 1) {
+      width: 1.4rem;
+      height: 0.8rem;
+    }
+  }
+
+  &:hover {
+    color: var(--primary-color-3);
+  }
+
+  &.slide__control--prev_mod {
+    margin-right: 1.6rem;
+  }
+}
+
+.slide__control_title {
+  font-size: 1rem;
+  font-family: var(--font-bw-modelica);
+
+  opacity: 0;
+  transition: opacity 0.3s;
+
+  .slide__control:hover & {
+    opacity: 1;
+  }
+
+  @include bp($tablet_max - 1) {
+    display: none;
+  }
+}

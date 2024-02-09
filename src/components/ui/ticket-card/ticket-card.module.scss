@@ -1,0 +1,365 @@
+@import "@/styles/helpers/helpers-all.scss";
+
+// ===============
+
+// New styles:
+
+.card {
+  flex-direction: column;
+  position: relative;
+  width: 320px;
+  // height: 250px;
+
+  .disabled-unavailable {
+    background: #000000;
+    opacity: 0.85;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    p {
+      display: none;
+    }
+  }
+
+  &:hover {
+    .disabled-unavailable {
+      background-color: black;
+      opacity: 0.9;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      // display: none;
+
+      z-index: 4;
+
+      p {
+        display: block;
+
+        font-size: 17px;
+        color: #fff;
+        opacity: 1;
+      }
+
+      @include bp($desktop) {
+        p {
+          font-size: 15px;
+        }
+      }
+
+      @media (max-width: 380px) {
+        p {
+          font-size: 12px;
+        }
+      }
+    }
+  }
+
+  .card-top {
+    background: linear-gradient(180deg, #f7ffba 0%, #ebebeb 100%) 0% 0%
+      no-repeat padding-box;
+
+    padding: 5px;
+
+    .card-top-inner {
+      width: 100%;
+      height: 200px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
+      .card-logo-title {
+        padding: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        .card-top-titles {
+          text-align: right;
+
+          p {
+            color: #ffffff;
+            opacity: 0.8;
+            font-size: 10px;
+            font-family: var(--font-baguede);
+
+            &:last-of-type {
+              font-style: italic;
+            }
+
+            @include bp($desktop) {
+              font-size: 9px;
+            }
+
+            @media (max-width: 380px) {
+              font-size: 8px;
+            }
+          }
+        }
+
+        @media (max-width: 380px) {
+          padding: 10px;
+        }
+      }
+
+      .card-top-details {
+        padding: 20px;
+
+        p {
+          font-size: 13px;
+        }
+
+        p:first-of-type {
+          font-size: 17px;
+          opacity: 0.9;
+        }
+
+        p:not(:last-of-type) {
+          margin-bottom: 6px;
+        }
+
+        @include bp($desktop) {
+          p {
+            font-size: 10px;
+          }
+
+          p:first-of-type {
+            font-size: 15px;
+          }
+        }
+
+        @media (max-width: 380px) {
+          padding: 10px;
+          p {
+            font-size: 8px;
+          }
+
+          p:first-of-type {
+            font-size: 12px;
+          }
+        }
+      }
+
+      @include bp($mobile_lg) {
+        width: 100%;
+        height: 180px;
+      }
+
+      @media (max-width: 380px) {
+        width: 100%;
+        height: 150px;
+      }
+    }
+  }
+
+  .card-top-mtn {
+    background: transparent linear-gradient(180deg, #faeb75 0%, #ebebeb 100%) 0%
+      0% no-repeat padding-box;
+  }
+
+  .card-top-momo {
+    background: transparent linear-gradient(180deg, #004f71 0%, #ebebeb 100%) 0%
+      0% no-repeat padding-box;
+  }
+
+  .momo-logo {
+    width: 25px;
+
+    svg {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+  }
+
+  .card-top-received {
+    background: transparent linear-gradient(180deg, #eabaff 0%, #ebebeb 100%) 0%
+      0% no-repeat padding-box;
+  }
+
+  .card-top-shared {
+    background: transparent linear-gradient(180deg, #bae2ff 0%, #ebebeb 100%) 0%
+      0% no-repeat padding-box;
+  }
+
+  .card__footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #ffffff;
+
+    .by-me-button,
+    .mtn-button,
+    .received-button {
+      display: flex;
+      width: 187px;
+      height: 55px;
+      text-decoration: none;
+      font-family: var(--font-baguede);
+      align-items: center;
+      justify-content: center;
+      background-color: transparent;
+      color: #0b0b0b;
+      font-size: 15px;
+      font-weight: 300;
+      opacity: 0.57;
+      transition: all 300ms;
+
+      &:hover {
+        background: linear-gradient(0deg, #f7ffba 0%, #ffffff 100%);
+      }
+
+      @include bp($desktop) {
+        width: 160px;
+        height: 45px;
+        font-size: 14px;
+      }
+
+      @include bp($mobile_lg) {
+        font-size: 13px;
+      }
+
+      @media (max-width: 380px) {
+        width: 100%;
+        height: 30px;
+      }
+    }
+
+    .card-footer-text {
+      display: flex;
+      gap: 10px;
+      width: 187px;
+      height: 55px;
+      background-color: transparent;
+      transition: all 300ms;
+      align-items: center;
+      padding: 0 20px;
+
+      .card-footer-from {
+        color: #333333;
+        opacity: 0.8;
+        font-size: 12px;
+        font-style: italic;
+      }
+
+      .card-footer-email {
+        color: #333333;
+        font-size: 12px;
+        opacity: 0.8;
+      }
+
+      @include bp($tablet_max) {
+        padding-right: 20px;
+      }
+
+      @include bp($mobile_lg) {
+        .card-footer-from {
+          font-size: 10px;
+        }
+
+        .card-footer-email {
+          font-size: 10px;
+        }
+      }
+
+      @media (max-width: 380px) {
+        width: 100%;
+        gap: 2px;
+        height: 30px;
+        padding-right: auto;
+
+        .card-footer-from {
+          font-size: 9px;
+        }
+
+        .card-footer-email {
+          font-size: 9px;
+        }
+      }
+    }
+
+    .mtn-button {
+      width: 100%;
+
+      &:hover {
+        background: linear-gradient(0deg, #f5c350 0%, #ffffff 100%);
+      }
+    }
+
+    .card-footer-text__received {
+      display: flex;
+      gap: 10px;
+      width: 187px;
+      height: 55px;
+      background-color: transparent;
+      transition: all 300ms;
+      align-items: center;
+      padding: 0 25px;
+
+      .card-footer-from {
+        color: #333333;
+        opacity: 0.8;
+        font-size: 12px;
+        font-style: italic;
+      }
+
+      .card-footer-email {
+        color: #333333;
+        font-size: 12px;
+        opacity: 0.8;
+      }
+
+      @include bp($tablet_max) {
+        padding-right: 20px;
+      }
+
+      @include bp($mobile_lg) {
+        .card-footer-from {
+          font-size: 10px;
+        }
+
+        .card-footer-email {
+          font-size: 10px;
+        }
+      }
+
+      @media (max-width: 380px) {
+        width: 100%;
+        gap: 2px;
+        height: 30px;
+        padding-right: auto;
+
+        .card-footer-from {
+          font-size: 9px;
+        }
+
+        .card-footer-email {
+          font-size: 9px;
+        }
+      }
+    }
+
+    .received-button {
+      &:hover {
+        background: linear-gradient(0deg, #eabaff 0%, #ffffff 100%) !important;
+      }
+    }
+  }
+
+  @include bp($desktop) {
+    width: 300px;
+    // height: 200px;
+  }
+
+  @include bp($mobile_lg) {
+    width: 100%;
+    // height: 95px;
+  }
+
+  @include bp($custom_stream_pass_iphone) {
+    // height: 150px;
+  }
+}

@@ -1,0 +1,27 @@
+@import "@/styles/helpers/form.scss";
+
+//---------------------------------------------Tile
+.container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+
+  @include bp($tablet_max, min) {
+    margin-right: -2rem;
+    margin-bottom: -2.2rem;
+  }
+
+  &.container--height_mod {
+    align-items: center;
+
+    @include bp($tablet_max, min) {
+      min-height: 24rem;
+    }
+
+    @include bp($tablet_max - 1) {
+      min-height: 14rem;
+    }
+  }
+}
+
+//---------------------------------------------Tile###
