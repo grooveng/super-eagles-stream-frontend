@@ -46,7 +46,6 @@ export default function App({ Component, pageProps }: AppPropsWithLayout) {
     }, 2000);
   }, []);
 
-
   useLayoutEffect(() => {
     document.body.classList.add("body--loaded");
   }, []);
@@ -68,11 +67,10 @@ export default function App({ Component, pageProps }: AppPropsWithLayout) {
                     {/* <ProtectedRoute router={router}> */}
                     <Component {...pageProps} />
                     {/* </ProtectedRoute> */}
-                    <Footer />
                   </div>
                 </div>
                 {/* </SmootherContext.Provider> */}
-                <MobileNavBar pathname={router.pathname} />
+                <Footer />
               </div>
             </Hydrate>
           </QueryClientProvider>
