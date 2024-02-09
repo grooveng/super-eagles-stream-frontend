@@ -17,6 +17,7 @@ export default function Document() {
     <Html lang="en">
       <Head>
         {/* <link rel="shortcut icon" href="/favicon.png" type="image/png" /> */}
+        <script defer data-domain="uduxconcerts.com" src="https://plausible.io/js/script.js"></script>
         {/* <script
           defer
           data-domain={domain}
