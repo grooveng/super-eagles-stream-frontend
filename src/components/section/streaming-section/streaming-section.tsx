@@ -132,9 +132,9 @@ export function StreamingSection({ eid }: StreamingSectionProps) {
   ) : (
     <div className={styles["page-wrapper"]}>
       <section className={styles["streaming"]}>
-        {/* <div className={styles["bg"]}>
-          <Picture img="images/streaming/bg.png" />
-        </div> */}
+        <div className={styles["bg"]}>
+          <Picture img="images/super-eagles.png" noSource/>
+        </div>
 
         <div className={styles["account__description-wrap"]}>
           <div className={styles["account__description"]}>
