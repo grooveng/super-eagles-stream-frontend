@@ -6,14 +6,6 @@
   flex-direction: column;
   position: relative;
   z-index: 10;
-
-  @include bp($tablet_max) {
-    margin-bottom: 80px;
-  }
-
-  @include bp($mobile_xs) {
-    margin-bottom: 60px;
-  }
 }
 
 .top__row {

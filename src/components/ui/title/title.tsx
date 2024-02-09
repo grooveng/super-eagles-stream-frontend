@@ -2,7 +2,7 @@ import { ReactNode } from "react";
 import DOMPurify from "isomorphic-dompurify";
 import { cva, VariantProps } from "class-variance-authority";
 
-import { AnimSplitEl } from "../anim-split-el";
+// import { AnimSplitEl } from "../anim-split-el";
 import styles from "./title.module.scss";
 
 const className = cva(styles["title"], {

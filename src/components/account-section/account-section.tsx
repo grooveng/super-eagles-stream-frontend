@@ -5,9 +5,9 @@ import { Picture, PictureProps } from "@/components/ui/picture/picture";
 import { Title } from "@/components/ui/title/title";
 import { AccountSlider } from "./ui";
 import { VariantProps, cva } from "class-variance-authority";
-// import { Breadcrumbs, BreadcrumbsProps } from "@/components/ui/breadcrumbs";
-import { BackLink } from "@/components/ui/back-link";
 import { boolean } from "zod";
+import { Description } from "../ui/description";
+import { MtnLogo } from "../ui/mtn-logo";
 
 const contentStyles = cva(styles["account__content"], {
   variants: {
@@ -72,10 +72,18 @@ export function AccountSection({
                 <div className={styles["account__image"]}>
                   <Picture {...picture} noSource />
 
-                  <div className={styles["account__description"]}>
-                    <Title tag="h1" size={"base"}>
-                      Together, we rise
-                    </Title>
+                  <div className={styles["account__description-wrap"]}>
+                    <div className={styles["account__description"]}>
+                      <div className={styles["account__description-top"]}>
+                        <p>Together, we rise</p>
+                        <p>unite for Victory, Nigeria</p>
+                      </div>
+
+                      <div className={styles["account__description-bottom"]}>
+                        <p>Brought to you by </p>
+                        <MtnLogo />
+                      </div>
+                    </div>
                   </div>
                 </div>
               )}

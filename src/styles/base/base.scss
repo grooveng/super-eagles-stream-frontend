@@ -75,9 +75,14 @@
   }
 
   @include bp($tablet_max - 1) {
-    --height-header: 8.2rem;
+    --height-header: 40rem;
     --height-header-2: 6.2rem;
     --gl-hr-indent: 2.8rem;
+  }
+
+  @include bp ($mobile_lg) {
+    --height-header: 20rem;
+    --gl-hr-indent: 2.5rem;
   }
 
   @media (max-width: 290px) {

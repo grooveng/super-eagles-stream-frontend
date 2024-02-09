@@ -25,7 +25,23 @@ import { SubmitHandler, useForm } from "react-hook-form"
 import { z } from "zod"
 import { NextPageWithLayout } from "./_app"
 import { AccountSection } from "@/components/account-section"
-import { LoginMutResponse } from "@/types/misc"
+import { BaseLayout } from "@/components/layout/base-layout"
+
+export interface LoginMutResponse {
+  status: string
+  data: Data
+  message: string
+}
+
+export interface Data {
+  tokens: Tokens
+  // user: User;
+}
+
+export interface Tokens {
+  accessToken: string
+  refreshToken: string
+}
 
 const formSchema = z.object({
   username: z.string().min(1, "Username is required"),
@@ -111,73 +127,108 @@ export default function Home() {
   // };
 
   return (
-    // <BaseLayout variant="baseOtherPages">
-    <Fragment>
-      <CustomHead title={"Login to your profile"} />
-      <AccountSection
-        backLink="/account"
-        contentSize="sm"
-        subtitleOffset="md"
-        title="Stream now"
-        subtitle="Access the eagles triumphant return"
-        picture={{
-          img: "images/login-img.png",
-        }}
-        bgPicture={{
-          img: "images/bg.png",
-          mobileVersion: true,
-        }}
-      >
-        <form
-        // onSubmit={handleSubmit(onSubmit)}
+    <BaseLayout variant="baseOtherPages">
+      <Fragment>
+        <CustomHead title={"Login to your profile"} />
+        <AccountSection
+          backLink="/account"
+          contentSize="sm"
+          subtitleOffset="md"
+          title="Stream now"
+          subtitle="Access the eagles triumphant return"
+          picture={{
+            img: "images/login-img.png",
+          }}
+          bgPicture={{
+            img: "images/bg.png",
+            mobileVersion: true,
+          }}
         >
-          <FormGrid offset="intermediate">
-            <FormGrid.Container>
-              <FormGrid.Tile>
-                <FormField id="password" label="Username">
-                  <Input
-                    type="text"
-                    placeholder="Enter your username"
-                    {...register("username")}
-                    error={Boolean(errors.username)}
-                    errorMsg={
-                      // errors?.username?.message
-                      "Stop"
-                    }
-                  />
-                </FormField>
-              </FormGrid.Tile>
-              <FormGrid.Tile>
-                <FormField id="email" label="Email Address">
-                  <Input
-                    type="email"
-                    placeholder="What’s your email"
-                    {...register("emailAddress")}
-                    error={Boolean(errors.emailAddress)}
-                    errorMsg={
-                      // errors?.emailAddress?.message ||
-                      "Stop"
-                    }
-                  />
-                </FormField>
-              </FormGrid.Tile>
-            </FormGrid.Container>
-          </FormGrid>
+          <form
+          // onSubmit={handleSubmit(onSubmit)}
+          >
+            <FormGrid offset="intermediate">
+              <FormGrid.Container>
+                <FormGrid.Tile>
+                  <FormField id="password" label="Username">
+                    <Input
+                      type="text"
+                      placeholder="Enter your username"
+                      {...register("username")}
+                      error={Boolean(errors.username)}
+                      errorMsg={
+                        // errors?.username?.message
+                        "Stop"
+                      }
+                    />
+                  </FormField>
+                </FormGrid.Tile>
+                <FormGrid.Tile>
+                  <FormField id="email" label="Email Address">
+                    <Input
+                      type="email"
+                      placeholder="What’s your email"
+                      {...register("emailAddress")}
+                      error={Boolean(errors.emailAddress)}
+                      errorMsg={
+                        // errors?.emailAddress?.message ||
+                        "Stop"
+                      }
+                    />
+                  </FormField>
+                </FormGrid.Tile>
+              </FormGrid.Container>
+            </FormGrid>
 
-          <ButtonWrapper offset="xl">
-            <Button
-              type="submit"
-              variant={"alternate3"}
-              width={"full"}
-              isLoading={isLoading}
+            <div
+              style={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                marginBottom: "4rem",
+                textAlign: "left",
+                opacity: "0.8",
+              }}
+              className="sign__upTerms"
             >
-              Continue
-            </Button>
-          </ButtonWrapper>
-        </form>
-        <ToastContainerWrapper />
-      </AccountSection>
-    </Fragment>
-    // </BaseLayout>
+              <small>
+                By continuing past this page, you agree to the
+                <Link
+                  style={{
+                    color: "#F5C350",
+                  }}
+                  className="link"
+                  href="/terms-and-conditions/"
+                >
+                  Terms of Use
+                </Link>
+                and understand that information will be used as described in our
+                <Link
+                  style={{
+                    color: "#F5C350",
+                  }}
+                  className="link"
+                  href="/privacy-policy"
+                >
+                  Privacy Policy.
+                </Link>
+              </small>
+            </div>
+
+            <ButtonWrapper offset="xl">
+              <Button
+                type="submit"
+                variant={"alternate3"}
+                width={"full"}
+                isLoading={isLoading}
+              >
+                Continue
+              </Button>
+            </ButtonWrapper>
+          </form>
+          <ToastContainerWrapper />
+        </AccountSection>
+      </Fragment>
+    </BaseLayout>
   )
 }
