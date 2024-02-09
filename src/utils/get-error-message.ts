@@ -1,5 +1,5 @@
-import { ResponseWithError } from "@/types";
-import { AxiosError } from "axios";
+import { AxiosError } from "axios"
+import { ResponseWithError } from "./network-response"
 
 function isErrorWithMessage(error: unknown): error is Error {
   return (
@@ -7,48 +7,48 @@ function isErrorWithMessage(error: unknown): error is Error {
     error !== null &&
     "message" in error &&
     typeof (error as Record<string, unknown>).message === "string"
-  );
+  )
 }
 
 function toErrorWithMessage(likelyError: unknown): Error {
-  if (isErrorWithMessage(likelyError)) return likelyError;
+  if (isErrorWithMessage(likelyError)) return likelyError
 
   try {
-    return new Error(JSON.stringify(likelyError));
+    return new Error(JSON.stringify(likelyError))
   } catch (error) {
-    return new Error(String(likelyError));
+    return new Error(String(likelyError))
   }
 }
 
 export function getErrorMessage(error: unknown) {
-  return toErrorWithMessage(error).message;
+  return toErrorWithMessage(error).message
 }
 
 export function getError(error: unknown) {
-  return toErrorWithMessage(error);
+  return toErrorWithMessage(error)
 }
 
 export function getErrorResponse(error: unknown): string | undefined {
-  const parseError = getError(error) as AxiosError<ResponseWithError>;
+  const parseError = getError(error) as AxiosError<ResponseWithError>
 
   if (parseError.name === "AxiosError") {
-    const er = parseError.response;
+    const er = parseError.response
 
     if (Array.isArray(er?.data?.data)) {
-      const erData = er?.data?.data;
+      const erData = er?.data?.data
       if (erData && erData.length > 0) {
         if (typeof erData[0] === "string") {
-          return erData[0];
+          return erData[0]
         } else if (typeof erData[0] === "object") {
           return erData[0].field
             ? `${erData[0].field}: ${erData[0].message}`
-            : erData[0].message;
+            : erData[0].message
         }
       }
     } else if (typeof er?.data?.message === "string") {
-      return er.data.message;
+      return er.data.message
     }
   }
 
-  return undefined;
+  return undefined
 }

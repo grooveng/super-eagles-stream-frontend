@@ -1,46 +1,31 @@
-import { CustomHead } from "@/components/custom-head/custom-head";
+import { CustomHead } from "@/components/custom-head/custom-head"
 // import { BaseLayout } from "@/components/layout/base-layout";
 
-import { Button } from "@/components/ui/button";
-import { ButtonWrapper } from "@/components/ui/button-wrapper";
-import { FormField } from "@/components/ui/form-field";
-import { FormGrid } from "@/components/ui/form-grid";
-import { Input } from "@/components/ui/input";
-import { LinkWrapper } from "@/components/ui/link-wrapper";
+import { Button } from "@/components/ui/button"
+import { ButtonWrapper } from "@/components/ui/button-wrapper"
+import { FormField } from "@/components/ui/form-field"
+import { FormGrid } from "@/components/ui/form-grid"
+import { Input } from "@/components/ui/input"
+import { LinkWrapper } from "@/components/ui/link-wrapper"
 import {
   ToastContainerWrapper,
   useToast,
-} from "@/components/ui/toaster-wrapper";
-import { useAuthContext } from "@/context/auth";
+} from "@/components/ui/toaster-wrapper"
+import { useAuthContext } from "@/context/auth"
 // import { CheckMomoUserData, User } from "@/types";
-import { getErrorResponse } from "@/utils";
-import { instance } from "@/utils/instance";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { useMutation } from "@tanstack/react-query";
-import { Metadata } from "next";
-import Link from "next/link";
-import { useRouter } from "next/router";
-import { Fragment, useState } from "react";
-import { SubmitHandler, useForm } from "react-hook-form";
-import { z } from "zod";
-import { NextPageWithLayout } from "./_app";
-import { AccountSection } from "@/components/account-section";
-
-export interface LoginMutResponse {
-  status: string;
-  data: Data;
-  message: string;
-}
-
-export interface Data {
-  tokens: Tokens;
-  // user: User;
-}
-
-export interface Tokens {
-  accessToken: string;
-  refreshToken: string;
-}
+import { getErrorResponse } from "@/utils"
+import { instance } from "@/utils/instance"
+import { zodResolver } from "@hookform/resolvers/zod"
+import { useMutation } from "@tanstack/react-query"
+import { Metadata } from "next"
+import Link from "next/link"
+import { useRouter } from "next/router"
+import { Fragment, useState } from "react"
+import { SubmitHandler, useForm } from "react-hook-form"
+import { z } from "zod"
+import { NextPageWithLayout } from "./_app"
+import { AccountSection } from "@/components/account-section"
+import { LoginMutResponse } from "@/types/misc"
 
 const formSchema = z.object({
   username: z.string().min(1, "Username is required"),
@@ -48,21 +33,20 @@ const formSchema = z.object({
     .string()
     .email("Invalid email address")
     .min(1, "Email is required"),
-});
+})
 
-type FormState = z.infer<typeof formSchema>;
+type FormState = z.infer<typeof formSchema>
 export type LoginParams = FormState & {
-  isMomoUser?: string;
-  momoMssidn?: string;
-};
+  isMomoUser?: string
+  momoMssidn?: string
+}
 
 export const metadata: Metadata = {
   title: "Login to Your Account",
-};
-
+}
 
 export default function Home() {
-  const { asPath } = useRouter();
+  const { asPath } = useRouter()
   // const { setAuthState } = useAuthContext();
 
   const {
@@ -71,16 +55,16 @@ export default function Home() {
     formState: { errors },
   } = useForm<FormState>({
     resolver: zodResolver(formSchema),
-  });
+  })
 
-  const { showToast } = useToast();
+  const { showToast } = useToast()
   const { mutate, isLoading } = useMutation(async (variables: LoginParams) => {
     const { data } = await instance.post<LoginMutResponse>(
       "/user-auth/login",
       variables
-    );
-    return data;
-  });
+    )
+    return data
+  })
 
   // const onSubmit: SubmitHandler<FormState> = ({ emailAddress, password }) => {
   //   const { success: isEmail } = z.string().email().safeParse(emailAddress);
@@ -149,7 +133,7 @@ export default function Home() {
         >
           <FormGrid offset="intermediate">
             <FormGrid.Container>
-            <FormGrid.Tile>
+              <FormGrid.Tile>
                 <FormField id="password" label="Username">
                   <Input
                     type="text"
@@ -177,12 +161,16 @@ export default function Home() {
                   />
                 </FormField>
               </FormGrid.Tile>
-             
             </FormGrid.Container>
           </FormGrid>
 
           <ButtonWrapper offset="xl">
-            <Button type="submit" variant={"alternate3"} width={"full"} isLoading={isLoading}>
+            <Button
+              type="submit"
+              variant={"alternate3"}
+              width={"full"}
+              isLoading={isLoading}
+            >
               Continue
             </Button>
           </ButtonWrapper>
@@ -191,5 +179,5 @@ export default function Home() {
       </AccountSection>
     </Fragment>
     // </BaseLayout>
-  );
+  )
 }

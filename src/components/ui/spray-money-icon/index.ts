@@ -1,1 +1,0 @@
-export * from './spray-money-icon'
