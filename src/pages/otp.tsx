@@ -16,16 +16,10 @@ import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 
 interface VerifyOtp {
-  confirmEmailToken: string;
-  emailAddress: string;
-  sourceService: string;
+  code: string;
 }
 const verifyOtp = async (payload: VerifyOtp) => {
-  const { data } = await instance.post(
-    `/user-auth/confirm-email-verification-otp/${encodeURIComponent(
-      payload.emailAddress
-    )}/${payload.confirmEmailToken}`
-  );
+  const { data } = await instance.post("/verify", payload);
   return data;
 };
 
@@ -36,30 +30,9 @@ export default function Otp() {
   const { setAuthState } = useAuthContext();
   const { showToast } = useToast();
   const searchParams = useSearchParams();
-  const email =
-    (searchParams.get("email") as string) ||
-    (searchParams.get("emailAddress") as string);
+
   const token = searchParams.get("token");
   const [otp, setOtp] = useState("");
-
-  const handleResendOtp = async (payload: string) => {
-    try {
-      const { data } = await instance.post(
-        `/user-auth/resend-email-verification-mail/${payload}`
-      );
-
-      router.push({
-        pathname: "/otp",
-        query: {
-          email,
-        },
-      });
-      showToast("Check your Phone or your Email for the OTP", {
-        type: "success",
-      });
-      return data;
-    } catch (err) {}
-  };
 
   const submitForm = async () => {
     if (otp.length < 5) {
@@ -67,11 +40,9 @@ export default function Otp() {
         type: "error",
       });
     }
-    const localEmail = localStorage.getItem("signup-email") || "";
+
     const payload = {
-      confirmEmailToken: otp,
-      emailAddress: email || localEmail,
-      sourceService: "livestream",
+      code: otp.toUpperCase(),
     };
     const parsedQuery = router.asPath.split("?from=")[1];
 
@@ -79,11 +50,8 @@ export default function Otp() {
 
     try {
       const { data } = await verifyOtp(payload);
-      localStorage.removeItem("signup-email");
-      const { tokens, user } = data;
 
-      setAuthState({ ...tokens, user });
-      router.push(parsedQuery ? parsedQuery : "/browse-events");
+      router.push(parsedQuery ? parsedQuery : "/streaming");
       setSubmitting(false);
     } catch (err: any) {
       if (err.response) {
@@ -134,11 +102,11 @@ export default function Otp() {
               </Button>
             </ButtonWrapper>
           </form>
-          <LinkWrapper>
+          {/* <LinkWrapper>
             <Link href={"#"} onClick={() => handleResendOtp(email)}>
               Didn’t get Token? Send again
             </Link>
-          </LinkWrapper>
+          </LinkWrapper> */}
         </AccountSection>
       </>
     </BaseLayout>

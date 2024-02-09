@@ -13,7 +13,7 @@ export interface Data {
 
 export interface Tokens {
   accessToken: string
-  refreshToken: string
+  refreshToken?: string
 }
 
 export interface LocationData {

@@ -7,7 +7,6 @@ import {
 import { useAuthContext } from "@/context/auth";
 
 import { DEFAULT_USER_IMAGE, getErrorResponse } from "@/utils";
-import { instance, socketInstance } from "@/utils/instance";
 import { useMutation, useQuery } from "@tanstack/react-query";
 import { AxiosError } from "axios";
 import { capitalize } from "lodash";

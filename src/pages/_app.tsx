@@ -22,7 +22,8 @@ import { AuthContextProvider } from "@/context/auth";
 import "@/styles/globals.css";
 import "@/styles/globals.scss";
 import { ToastContainerWrapper } from "@/components/ui/toaster-wrapper";
-// import "react-toastify/dist/ReactToastify.css";
+import "react-toastify/dist/ReactToastify.css";
+import ProtectedRoute from "@/components/layout/protected-route/protected-route";
 
 if (typeof window === "undefined") React.useLayoutEffect = React.useEffect;
 
@@ -64,9 +65,9 @@ export default function App({ Component, pageProps }: AppPropsWithLayout) {
                 {/* <SmootherContext.Provider value={smoother}> */}
                 <div id="smooth-wrapper">
                   <div id="smooth-content">
-                    {/* <ProtectedRoute router={router}> */}
-                    <Component {...pageProps} />
-                    {/* </ProtectedRoute> */}
+                    <ProtectedRoute router={router}>
+                      <Component {...pageProps} />
+                    </ProtectedRoute>
                   </div>
                 </div>
                 {/* </SmootherContext.Provider> */}

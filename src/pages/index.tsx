@@ -7,12 +7,9 @@ import { FormField } from "@/components/ui/form-field";
 import { FormGrid } from "@/components/ui/form-grid";
 import { Input } from "@/components/ui/input";
 import { LinkWrapper } from "@/components/ui/link-wrapper";
-import {
-  ToastContainerWrapper,
-  useToast,
-} from "@/components/ui/toaster-wrapper";
+import { useToast } from "@/components/ui/toaster-wrapper";
 import { useAuthContext } from "@/context/auth";
-// import { CheckMomoUserData, User } from "@/types";
+
 import {
   CountryInputProps,
   getCountries,
@@ -33,21 +30,24 @@ import { AccountSection } from "@/components/account-section";
 import { BaseLayout } from "@/components/layout/base-layout";
 import { SelectField } from "@/components/ui/select-field";
 import { isPossiblePhoneNumber } from "libphonenumber-js";
+import { User } from "@/types/user";
+import { devDomains } from "@/utils/dev-domains";
+import { isTemporaryEmail } from "@/utils/email-validator";
+import { parsePhoneNumber } from "@/utils/parse-phone-number";
 
 export interface LoginMutResponse {
-  status: string;
+  status?: string;
   data: Data;
   message: string;
 }
 
 export interface Data {
   tokens: Tokens;
-  // user: User;
+  user: User;
 }
 
 export interface Tokens {
   accessToken: string;
-  refreshToken: string;
 }
 
 export const metadata: Metadata = {
@@ -55,10 +55,10 @@ export const metadata: Metadata = {
 };
 
 export default function Home() {
-  const { asPath } = useRouter();
   const [countryCode, setCountryCode] = useState<CountryInputProps>();
   const [phoneNumber, setPhoneNumber] = useState("");
-  // const { setAuthState } = useAuthContext();
+  const { push, asPath } = useRouter();
+  const { setAuthState } = useAuthContext();
   type FormState = z.infer<typeof formSchema>;
 
   const formSchema = z.object({
@@ -75,7 +75,7 @@ export default function Home() {
         message: "Invalid Phone Number",
       }
     ),
-    emailAddress: z
+    email: z
       .string()
       .email("Invalid email address")
       .min(1, "Email is required"),
@@ -91,57 +91,61 @@ export default function Home() {
   });
 
   const { showToast } = useToast();
-  // const { mutate, isLoading } = useMutation(async (variables: LoginParams) => {
-  //   const { data } = await instance.post<LoginMutResponse>(
-  //     "/user-auth/login",
-  //     variables
-  //   );
-  //   return data;
-  // });
+  const { mutate, isLoading } = useMutation(async (variables: FormState) => {
+    const { data } = await instance.post<LoginMutResponse>(
+      "/record",
+      variables
+    );
+    return data;
+  });
 
-  // const onSubmit: SubmitHandler<FormState> = ({ emailAddress, password }) => {
-  //   const { success: isEmail } = z.string().email().safeParse(emailAddress);
+  const isInDevDomain = devDomains.includes(window.location.host);
 
-  //   if (isEmail) {
-  //     let variables: LoginParams = {
-  //       password,
-  //       emailAddress: emailAddress.toLowerCase(),
-  //     };
+  const onSubmit: SubmitHandler<FormState> = ({ email, phoneNumber }) => {
+    const parsedQuery = asPath.split("?from=")[1];
 
-  //     if (momoUserObject) {
-  //       variables.isMomoUser = String(momoUserObject.isMomoUser);
-  //       variables.momoMssidn = momoUserObject.momoMssidn;
-  //     }
+    const isTempEmail = !isInDevDomain && isTemporaryEmail(email)?.isTemporary;
+    const emailHasPlusCharacter =
+      !isInDevDomain && isTemporaryEmail(email)?.hasPlusCharacter;
+    const emailHasMoreThanTwoDots = isTemporaryEmail(email)?.hasMoreThanTwoDots;
+    const emailHasFakeDomain = isTemporaryEmail(email)?.fakeMails;
 
-  //     const parsedQuery = asPath.split("?from=")[1];
+    if (isTempEmail || emailHasFakeDomain)
+      return showToast(
+        "Unfortunately you can’t open a livestream account using a temp email provider.",
+        { type: "error" }
+      );
+    if (emailHasPlusCharacter)
+      return showToast("Oops! No forwarding email addresses allowed", {
+        type: "error",
+      });
+    if (emailHasMoreThanTwoDots)
+      return showToast(
+        "Something doesn’t look right with this email. Please register with another account",
+        { type: "error" }
+      );
 
-  //     mutate(variables, {
-  //       onSuccess: ({ data }: LoginMutResponse) => {
-  //         const { tokens, user } = data;
-  //         setAuthState({ ...tokens, user });
+    let variables: FormState = {
+      email,
+      phoneNumber: parsePhoneNumber(countryCode, phoneNumber),
+    };
 
-  //         window.location.href = parsedQuery
-  //           ? parsedQuery
-  //           : momoUserObject
-  //           ? "/browse-events"
-  //           : "/browse-events";
-  //         localStorage.removeItem("momo-number-check");
-  //         localStorage.removeItem("momo-user-object");
-  //       },
-  //       onError: (error) => {
-  //         const message = getErrorResponse(error);
+    mutate(variables, {
+      onSuccess: ({ data }: LoginMutResponse) => {
+        console.log({ data });
 
-  //         showToast(message, {
-  //           type: "error",
-  //         });
-  //       },
-  //     });
-  //   } else {
-  //     showToast("Invalid email address. Please enter a valid email.", {
-  //       type: "error",
-  //     });
-  //   }
-  // };
+        const { tokens, user } = data;
+
+        setAuthState({ ...tokens, user });
+
+        push(`/otp?email=${user.email}`);
+      },
+      onError: (err) => {
+        const message = getErrorResponse(err);
+        showToast(message, { type: "error" });
+      },
+    });
+  };
 
   return (
     <BaseLayout variant="baseOtherPages">
@@ -161,9 +165,7 @@ export default function Home() {
             mobileVersion: true,
           }}
         >
-          <form
-          // onSubmit={handleSubmit(onSubmit)}
-          >
+          <form onSubmit={handleSubmit(onSubmit)}>
             <FormGrid offset="intermediate">
               <FormGrid.Container>
                 <FormGrid.Tile size="thirty">
@@ -203,12 +205,9 @@ export default function Home() {
                     <Input
                       type="email"
                       placeholder="What’s your email"
-                      {...register("emailAddress")}
-                      error={Boolean(errors.emailAddress)}
-                      errorMsg={
-                        // errors?.emailAddress?.message ||
-                        "Stop"
-                      }
+                      {...register("email")}
+                      error={Boolean(errors.email)}
+                      errorMsg={errors?.email?.message}
                     />
                   </FormField>
                 </FormGrid.Tile>
@@ -255,13 +254,12 @@ export default function Home() {
                 type="submit"
                 variant={"alternate3"}
                 width={"full"}
-                // isLoading={isLoading}
+                isLoading={isLoading}
               >
                 Continue
               </Button>
             </ButtonWrapper>
           </form>
-          <ToastContainerWrapper />
         </AccountSection>
       </Fragment>
     </BaseLayout>
