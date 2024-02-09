@@ -16,7 +16,7 @@ import {
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
-import { MobileNavBar } from "@/components/layout/mobile-nav-bar";
+
 import { useRouter } from "next/router";
 import { AuthContextProvider } from "@/context/auth";
 import "@/styles/globals.css";

@@ -1,6 +1,5 @@
 import { Loader } from "@/components/ui/loaders";
-import { NoAccessToStream } from "@/components/ui/no-access-to-stream/no-access-to-stream";
-import { StreamingChat } from "@/components/ui/streaming-chat";
+
 import {
   ToastContainerWrapper,
   useToast,
@@ -31,14 +30,12 @@ import { format } from "date-fns";
 // import { useSocket } from "@/context/socket";
 
 import { Button } from "@/components/ui/button";
-import { Events } from "@/types/events";
-import { ResponseWithEvent } from "@/types/network-response";
+
+// import { ResponseWithEvent } from "@/types/network-response";
 import { MtnLogo } from "@/components/ui/mtn-logo";
 import { UduxIcon } from "@/components/ui/logo";
 
 export function StreamingSection() {
-  const [event, setEvent] = useState<Events>();
-
   const { showToast } = useToast();
 
   const { push } = useRouter();
@@ -174,14 +171,19 @@ export function StreamingSection() {
             <div className={styles["posters"]}>
               <div className={styles["first-ad"]}>
                 <Picture
-                  img={event?.bannerUrl || "images/streaming/bg.png"}
+                    img={
+                      // event?.bannerUrl ||
+                      "images/streaming/bg.png"}
                   noSource
                 />
               </div>
 
               <div className={styles["second-ad"]}>
                 <Picture
-                  img={event?.bannerUrl || "images/streaming/bg.png"}
+                    img={
+                      // event?.bannerUrl ||
+                      "images/streaming/bg.png"
+                    }
                   noSource
                 />
               </div>

@@ -1,7 +1,7 @@
 import React, { ReactNode, createContext, useContext } from "react";
 import { AiFillInfoCircle, AiFillWarning } from "react-icons/ai";
 import { BsCheck2Circle } from "react-icons/bs";
-import { SprayMoneyIcon } from "../spray-money-icon";
+
 import { PiWarningOctagonDuotone } from "react-icons/pi";
 import {
   ToastContainer,
