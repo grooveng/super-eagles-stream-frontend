@@ -1,6 +1,5 @@
 import { Loader } from "@/components/ui/loaders";
 import { NoAccessToStream } from "@/components/ui/no-access-to-stream/no-access-to-stream";
-import { StreamSectionFilterButton } from "@/components/ui/stream-section-filter-button";
 import { StreamingChat } from "@/components/ui/streaming-chat";
 import {
   ToastContainerWrapper,
@@ -35,6 +34,7 @@ import { Button } from "@/components/ui/button";
 import { Events } from "@/types/events";
 import { ResponseWithEvent } from "@/types/network-response";
 import { MtnLogo } from "@/components/ui/mtn-logo";
+import { UduxIcon } from "@/components/ui/logo";
 
 export type StreamingSectionProps = {
   eid: string;
@@ -139,7 +139,7 @@ export function StreamingSection({ eid }: StreamingSectionProps) {
         <div className={styles["account__description-wrap"]}>
           <div className={styles["account__description"]}>
             <div className={styles["account__description-top"]}>
-              <p>Together, we rise</p>
+              <h1>Together, we rise</h1>
               <p>unite for Victory, Nigeria</p>
             </div>
 
@@ -169,11 +169,26 @@ export function StreamingSection({ eid }: StreamingSectionProps) {
                 ></iframe>
               </div>
             </div>
-            <div className={styles["poster"]}>
-              <Picture
-                img={event?.bannerUrl || "images/streaming/bg.png"}
-                noSource
-              />
+            <div className={styles["udux-section"]}>
+              <div className={styles["udux-inner"]}>
+                <p>For All The Ways Music Moves You</p>
+                <UduxIcon />
+              </div>
+            </div>
+            <div className={styles["posters"]}>
+              <div className={styles["first-ad"]}>
+                <Picture
+                  img={event?.bannerUrl || "images/streaming/bg.png"}
+                  noSource
+                />
+              </div>
+
+              <div className={styles["second-ad"]}>
+                <Picture
+                  img={event?.bannerUrl || "images/streaming/bg.png"}
+                  noSource
+                />
+              </div>
             </div>
           </div>
         </div>

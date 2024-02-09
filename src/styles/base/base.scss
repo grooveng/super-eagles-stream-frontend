@@ -74,14 +74,20 @@
     --gl-hr-indent: 9.4rem;
   }
 
-  @include bp($tablet_max - 1) {
-    --height-header: 40rem;
+  @include bp($tablet_max) {
+    --height-header: 7rem;
     --height-header-2: 6.2rem;
     --gl-hr-indent: 2.8rem;
   }
 
-  @include bp ($mobile_lg) {
-    --height-header: 20rem;
+  // @include bp($tablet_max - 1) {
+  //   --height-header: 40rem;
+  //   --height-header-2: 6.2rem;
+  //   --gl-hr-indent: 2.8rem;
+  // }
+
+  @include bp($mobile_lg) {
+    --height-header: 10rem;
     --gl-hr-indent: 2.5rem;
   }
 
