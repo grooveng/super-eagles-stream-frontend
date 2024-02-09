@@ -36,11 +36,8 @@ import { ResponseWithEvent } from "@/types/network-response";
 import { MtnLogo } from "@/components/ui/mtn-logo";
 import { UduxIcon } from "@/components/ui/logo";
 
-export type StreamingSectionProps = {
-  eid: string;
-};
 
-export function StreamingSection({ eid }: StreamingSectionProps) {
+export function StreamingSection() {
   const [event, setEvent] = useState<Events>();
 
   const { showToast } = useToast();
@@ -60,17 +57,17 @@ export function StreamingSection({ eid }: StreamingSectionProps) {
   const passId = query.pass as string;
   const eventUrlId = query.eid as string;
 
-  const { isLoading: isEventLoading } = useQuery(
-    ["get-single-event"],
-    async (): Promise<Events> => {
-      const { data } = await instance.get<ResponseWithEvent>(`/events/${eid}`);
-      setEvent(data.data);
-      return data.data;
-    },
-    {
-      enabled: !!eid,
-    }
-  );
+  // const { isLoading: isEventLoading } = useQuery(
+  //   ["get-single-event"],
+  //   async (): Promise<Events> => {
+  //     const { data } = await instance.get<ResponseWithEvent>(`/events/${eid}`);
+  //     setEvent(data.data);
+  //     return data.data;
+  //   },
+  //   {
+  //     enabled: !!eid,
+  //   }
+  // );
 
   const isFetching = false;
 
