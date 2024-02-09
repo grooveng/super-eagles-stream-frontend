@@ -65,7 +65,7 @@ export function Header({ hasMobileCta = false }: HeaderProps) {
       <header className={styles["header"]}>
         <div className={styles["header__row"]}>
           <Column>
-            <Link href="/" className={styles["header__logo"]}>
+            <Link  href="#" className={styles["header__logo"]}>
               <Logo />
             </Link>
           </Column>
