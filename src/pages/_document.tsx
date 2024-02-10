@@ -7,6 +7,11 @@ export default function Document() {
         <link rel="shortcut icon" href="/favicon.png" type="image/png" />
         <script
           defer
+          data-domain="supereaglesevent.com"
+          src="https://plausible.io/js/script.js"
+        ></script>
+        <script
+          defer
           data-domain="uduxconcerts.com"
           src="https://plausible.io/js/script.js"
         ></script>
