@@ -24,9 +24,15 @@ const ProtectedRoute = ({ router, children }: ProtectedRouteProps) => {
 
   let unprotectedRoutes = ["/otp", "/"];
 
-  let pathIsProtected = unprotectedRoutes.indexOf(router.pathname) === -1;
+    let pathIsProtected = unprotectedRoutes.indexOf(router.pathname) === -1;
+    
 
-  if ((isBrowser() && !isAuthenticated && pathIsProtected) || isOnMultiDevice) {
+    console.log(isBrowser())
+    console.log(isAuthenticated)
+    console.log(pathIsProtected)
+
+    if ((isBrowser() && !isAuthenticated && pathIsProtected) || isOnMultiDevice) {
+   
     window.location.href = `/${router.asPath ? `?from=${router.asPath}` : ""}`;
   }
 
