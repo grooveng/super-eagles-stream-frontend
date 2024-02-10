@@ -62,7 +62,7 @@ export function Header({ hasMobileCta = false }: HeaderProps) {
 
   return (
     <Fragment>
-      <header
+      {/* <header
         className={
           !scrolling
             ? `${styles["header"]}`
@@ -76,7 +76,7 @@ export function Header({ hasMobileCta = false }: HeaderProps) {
             </div>
           </Column>
         </div>
-      </header>
+      </header> */}
     </Fragment>
   );
 }

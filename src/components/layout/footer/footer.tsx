@@ -37,7 +37,7 @@ export function Footer() {
   return (
     <footer className={styles["footer"]}>
       <div className={styles["bottom__row"]}>
-        <div className={styles["social__media"]}>
+        {/* <div className={styles["social__media"]}>
           {footerSocialLinks.map(({ icon, href }, idx) => (
             <Image
               key={idx}
@@ -48,7 +48,7 @@ export function Footer() {
               onClick={() => window.open(href, "_blank", "noopener noreferrer")}
             />
           ))}
-        </div>
+        </div> */}
 
         <ul className={styles["footer__list"]}>
           {footerLinks.map(({ href, text }) => {

@@ -84,13 +84,13 @@ export function StreamingSection() {
                 ></iframe>
               </div>
             </div>
-            <div className={styles["udux-section"]}>
+            {/* <div className={styles["udux-section"]}>
               <div className={styles["udux-inner"]}>
                 <p>For All The Ways Music Moves You</p>
                 <UduxIcon />
               </div>
-            </div>
-            <div className={styles["posters"]}>
+            </div> */}
+            {/* <div className={styles["posters"]}>
               <div className={styles["first-ad"]}>
                 <Picture
                   img={
@@ -110,7 +110,7 @@ export function StreamingSection() {
                   noSource
                 />
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
 
